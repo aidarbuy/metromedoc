@@ -4,18 +4,35 @@ import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import spacing from 'material-ui/styles/spacing';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {darkWhite, lightWhite, grey900, blue500} from 'material-ui/styles/colors';
+import {darkWhite, lightWhite, grey200, grey900, blue500, blue700, blue900} from 'material-ui/styles/colors';
 import AppNavDrawer from './AppNavDrawer';
 import AppTabs from './AppTabs';
+import Footer from './Footer';
 import FullWidthSection from './FullWidthSection';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
-require('./typography.css');
+require('../styles/layout.css');
+require('../styles/typography.css');
 
 lightBaseTheme.palette.primary1Color = blue500;
+lightBaseTheme.palette.primary2Color = blue700;
+lightBaseTheme.palette.primary3Color = grey900;
+lightBaseTheme.palette.alternateTextColor = grey200;
+// lightBaseTheme.palette.accent1Color =
+// lightBaseTheme.palette.accent2Color =
+// lightBaseTheme.palette.accent3Color =
+// lightBaseTheme.palette.textColor =
+// lightBaseTheme.palette.secondaryTextColor =
+// lightBaseTheme.palette.alternateTextColor =
+// lightBaseTheme.palette.canvasColor =
+// lightBaseTheme.palette.borderColor =
+// lightBaseTheme.palette.disabledColor =
+// lightBaseTheme.palette.pickerHeaderColor =
+// lightBaseTheme.palette.clockCircleColor =
+// lightBaseTheme.palette.shadowColor =
 
 class Master extends Component {
   static propTypes = {
@@ -64,14 +81,14 @@ class Master extends Component {
         top: 0,
       },
       root: {
-        paddingTop: spacing.desktopKeylineIncrement,
+        // paddingTop: spacing.desktopKeylineIncrement,
         minHeight: 400,
       },
       content: {
-        margin: spacing.desktopGutter,
+        // margin: spacing.desktopGutter,
       },
       contentWhenMedium: {
-        margin: `${spacing.desktopGutter * 2}px ${spacing.desktopGutter * 3}px`,
+        // margin: `${spacing.desktopGutter * 2}px ${spacing.desktopGutter * 3}px`,
       },
       footer: {
         backgroundColor: grey900,
@@ -141,41 +158,37 @@ class Master extends Component {
   };
 
   render() {
-    const {
-      location,
-      children,
-    } = this.props;
-
-    let {
-      navDrawerOpen,
-    } = this.state;
-
-    const {
-      prepareStyles,
-    } = this.state.muiTheme;
+    const {location, children} = this.props;
+    let {navDrawerOpen} = this.state;
+    const {prepareStyles} = this.state.muiTheme;
 
     const router = this.context.router;
+    console.debug(window.location);
     const styles = this.getStyles();
     const title =
-      router.isActive('/get-started') ? 'Get Started' :
-      router.isActive('/customization') ? 'Customization' :
-      router.isActive('/components') ? 'Components' :
-      router.isActive('/discover-more') ? 'Discover More' : '';
+      router.isActive('/') ? 'Metromed-UC' :
+      router.isActive('/about') ? 'About Us' :
+      router.isActive('/services') ? 'Services' :
+      router.isActive('doctors') ? 'Doctors' :
+      router.isActive('articles/') ? 'Articles' :
+      router.isActive('/location') ? 'Location' :
+      router.isActive('/virtual') ? 'Virtual Tour' :
+      router.isActive('/gallery') ? 'Photo gallery' : 'Metromed-UC';
 
     let docked = false;
     let showMenuIconButton = true;
 
-    if (this.props.width === LARGE && title !== '') {
-      docked = true;
-      navDrawerOpen = true;
-      showMenuIconButton = false;
+    {/*if (this.props.width === MEDIUM && title !== '') {*/}
+      {/*docked = false;*/}
+      {/*navDrawerOpen = false;*/}
+      {/*showMenuIconButton = true;*/}
 
-      styles.navDrawer = {
-        zIndex: styles.appBar.zIndex - 1,
-      };
-      styles.root.paddingLeft = 256;
-      styles.footer.paddingLeft = 256;
-    }
+    //   styles.navDrawer = {
+    //     zIndex: styles.appBar.zIndex - 1,
+    //   };
+    //   // styles.root.paddingLeft = 256;
+    //   // styles.footer.paddingLeft = 256;
+    // }
 
     return (
       <div>
@@ -214,33 +227,10 @@ class Master extends Component {
           onChangeList={this.handleChangeList}
           open={navDrawerOpen}
         />
-        <FullWidthSection style={styles.footer}>
-          <p style={prepareStyles(styles.p)}>
-            {'Hand crafted with love by the engineers at '}
-            <a style={styles.a} href="http://www.call-em-all.com/Careers">
-              Call-Em-All
-            </a>
-            {' and our awesome '}
-            <a
-              style={prepareStyles(styles.a)}
-              href="https://github.com/callemall/material-ui/graphs/contributors"
-            >
-              contributors
-            </a>.
-          </p>
-          <IconButton
-            iconStyle={styles.iconButton}
-            iconClassName="muidocs-icon-custom-github"
-            href="https://github.com/callemall/material-ui"
-          />
-          <p style={prepareStyles(styles.browserstack)}>
-            {'Thank you to '}
-            <a href="https://www.browserstack.com" style={prepareStyles(styles.browserstackLogo)} target="_blank">
-              <img src="https://www.browserstack.com/images/layout/logo.png" height="25" width="auto" />
-            </a>
-            {' for providing real browser testing infrastructure.'}
-          </p>
-        </FullWidthSection>
+        <Footer
+          color={this.state.muiTheme.palette.alternateTextColor}
+          bgColor={this.state.muiTheme.palette.primary3Color}
+        />
       </div>
     );
   }

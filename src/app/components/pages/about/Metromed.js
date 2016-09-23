@@ -32,8 +32,8 @@ export default ({imgSubtitleColor, primaryColor, textColor}) => (
 
     <CardMedia overlayContentStyle={{bottom:-1}} overlay={
       <CardTitle
-        title="Our X-Ray imaging system"
-        subtitle="We have laboratory and pharmacy as well"
+        title="Our X-Ray system"
+        subtitle="We have laboratory and pharmacy"
         subtitleStyle={{color:imgSubtitleColor}}
       />
     }>

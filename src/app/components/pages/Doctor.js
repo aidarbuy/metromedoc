@@ -43,7 +43,6 @@ class Doctor extends React.Component {
 						icon 						 = { <ArrowBack/> }
 						label 					 = { "All Doctors" }
 						labelPosition 	 = { "after" }
-						onTouchTap 			 = { this.handleTouchTap }
 						secondary 			 = { true }
 					/>
 				</div>
@@ -52,7 +51,7 @@ class Doctor extends React.Component {
 					Doctor {doctor.firstname} {doctor.lastname}
 				</h3>
 
-				<img width="100%" src={"images/doctors/" + doctor.img.big} />
+				<img width="100%" src={"/images/doctors/" + doctor.img.big} />
 
 				<div style={{margin:50, color:textColor}}>
 					{doctor.description.map((section, i) => (

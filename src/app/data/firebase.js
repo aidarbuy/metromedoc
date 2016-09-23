@@ -1,16 +1,15 @@
 var firebase = require("firebase/app");
-
 // require("firebase/auth");
 require("firebase/database");
 require("firebase/storage");
 
-// Initialize Firebase
 var config = {
 	apiKey: "AIzaSyBPxTET_LZP8eiyxvUqZ7zF9ZdSFYUxaAs",
 	authDomain: "metromeduc.firebaseapp.com",
 	databaseURL: "https://metromeduc.firebaseio.com",
 	storageBucket: "metromeduc.appspot.com",
 };
+
 firebase.initializeApp(config);
     
 // Get a reference to the database service

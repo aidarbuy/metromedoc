@@ -10,13 +10,13 @@ export default ({bgColor, handleActive, isAppbarFixed, route})=>(
 			))}
 		</Tabs>
 
-		<Tabs className="apptabs-7-icons" value={route}>
+		<Tabs className="apptabs-7-icons" value={window.location.pathname}>
 			{getMenuItems().map((item, i) => (
 				<Tab key={i} icon={item.icon} onActive={handleActive} value={item.route}/>
 			))}
 		</Tabs>
 
-		<Tabs className="apptabs-5-icons" value={route}>
+		<Tabs className="apptabs-5-icons" value={window.location.pathname}>
 			{getMenuItems().map((item, i) => {
 				if (i < 4 || i === 5)
 					return <Tab key={i} icon={item.icon} onActive={handleActive} value={item.route}/>;

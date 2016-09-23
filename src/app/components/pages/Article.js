@@ -1,7 +1,7 @@
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
-import { database } from '../data/firebase';
+import { database } from '../../data/firebase';
 import FlatButton from 'material-ui/FlatButton';
 // import Helmet from 'react-helmet';
 import Title from 'react-title-component';

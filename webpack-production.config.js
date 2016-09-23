@@ -18,17 +18,19 @@ const config = {
       // 'material-ui': path.resolve(__dirname, '../src'),
     },
   },
-  devtool: 'source-map',
+  devtool: '#hidden',
   // Configuration for server
   devServer: {
     contentBase: 'build',
     // Required for webpack-dev-server
     outputPath: buildPath,
+    historyApiFallback: true,
   },
   // Output file config
   output: {
     path: buildPath, // Path of output file
     filename: 'app.js', // Name of output file
+    publicPath: '/',
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -55,8 +57,8 @@ const config = {
       {from: 'src/www/images', to: 'images'},
       {from: 'src/www/js', to: 'js'},
       {from: 'src/www/layerslider', to: 'layerslider'},
+      {from: 'src/www/nanogallery', to: 'nanogallery'},
       {from: 'src/www/index.html'},
-      {from: 'src/www/versions.json'},
     ]),
   ],
   module: {

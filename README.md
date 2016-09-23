@@ -1,6 +1,6 @@
-# [Material-UI Docs](http://callemall.github.io/material-ui/)
+# [Metromed-UC App](https://github.com/aidarbuy/metromedoc/)
 
-This is the documentation website and application of Material-UI.
+This is the website and application of Metromed-UC.
 
 ## Requirements
 
@@ -12,9 +12,7 @@ This is the documentation website and application of Material-UI.
 ## Installation
 After cloning the repository, install dependencies:
 ```sh
-cd <project folder>/material-ui
-npm install
-cd <project folder>/material-ui/docs
+cd <project folder>/metromed
 npm install
 ```
 
@@ -28,7 +26,7 @@ Once dependencies are installed, start the application with:
 npm run browser:development
 ```
 
-Open `http://localhost:3000` to view the documentation site.
+Open `http://localhost:3000` to view the clinic site.
 
 ### iOS
 

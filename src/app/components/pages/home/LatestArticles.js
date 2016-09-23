@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
+import Link from 'react-router/lib/Link';
 
 class HomeArticles extends React.Component {
 	constructor(props) {
@@ -58,7 +59,8 @@ class HomeArticles extends React.Component {
 				<Toolbar style={{width:'100%', background:canvasColor}}>
 					<ToolbarGroup style={{width:'100%', textAlign:'center'}}>
 						<RaisedButton 
-							label="All Articles" href="/articles"
+							label="All Articles"
+							containerElement={<Link to="/articles"/>}
 							fullWidth={true}
 							secondary={true}
 							style={{

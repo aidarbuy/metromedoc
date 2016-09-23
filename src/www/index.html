@@ -1,25 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Metromed-UC</title>
-  <meta name="description" content="Google's material design UI components built with React.">
+  <meta name="description" content="Metromed Urgent Care of Leesburg.">
 
   <!-- Use minimum-scale=1 to enable GPU rasterization -->
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="shortcut icon" href="/images/favicon.ico">
 
-  <link type="text/css" rel="stylesheet" href="layerslider/css/layerslider.css">
-  <link type="text/css" rel="stylesheet" href="nanogallery/css/themes/light/nanogallery_light.min.css">
-  <link type="text/css" rel="stylesheet" href="nanogallery/css/themes/light/nanogallery_light.woff.min.css">
+  <link type="text/css" rel="stylesheet" href="/layerslider/css/layerslider.css">
+  <link type="text/css" rel="stylesheet" href="/nanogallery/css/themes/light/nanogallery_light.min.css">
+  <link type="text/css" rel="stylesheet" href="/nanogallery/css/themes/light/nanogallery_light.woff.min.css">
 </head>
 
 <body>
@@ -41,21 +38,32 @@
 
   <!-- TweenMax -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script> -->
-  <script src="js/TweenMax.min.js"></script>
+  <script src="/js/TweenMax.min.js"></script>
 
   <!-- jQuery -->
-  <script type="text/javascript" src="layerslider/js/jquery.js"></script>
+  <script type="text/javascript" src="/layerslider/js/jquery.js"></script>
 
   <!-- LayerSlider -->
-  <script type="text/javascript" src="layerslider/js/layerslider.transitions.js"></script>
-  <script type="text/javascript" src="layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
+  <script type="text/javascript" src="/layerslider/js/layerslider.transitions.js"></script>
+  <script type="text/javascript" src="/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
 
   <!-- Nano Gallery -->
   <script type="text/javascript" src="/nanogallery/jquery.nanogallery.min.js" async></script>
 
   <div id='app'>
-    <script src="app.js"></script>
+    <script src="/app.js"></script>
   </div>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67176288-1', 'auto');
+    ga('require', 'linkid');
+    ga('send', 'pageview');
+  </script>
 </body>
 
 </html>

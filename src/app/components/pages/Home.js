@@ -8,7 +8,6 @@ import typography from 'material-ui/styles/typography';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
 import Advertising from './home/Advertising';
-require('./home/layout.css');
 import BlueBar from './home/BlueBar';
 import CallToAction from './home/CallToAction';
 import CustomServices from './home/CustomServices';

@@ -1,10 +1,10 @@
 {
-  "name": "material-ui-docs",
+  "name": "metromed-uc-app",
   "version": "0.16.0-alpha",
-  "description": "Documentation site for material-ui",
+  "description": "Clinic site for metromed-uc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/callemall/material-ui.git"
+    "url": "https://github.com/aidarbuy/metromedoc.git"
   },
   "engines": {
     "node": ">=4"
@@ -13,8 +13,8 @@
   "scripts": {
     "start": "npm run browser:development",
     "browser:development": "webpack-dev-server --config webpack-dev-server.config.js --progress --colors --inline --https",
-    "browser:build": "NODE_ENV=docs-production webpack --config webpack-production.config.js --progress --colors --profile",
-    "browser:prd": "NODE_ENV=docs-production webpack-dev-server --config webpack-production.config.js --progress --colors",
+    "browser:build": "NODE_ENV=production webpack --config webpack-production.config.js --progress --colors --profile",
+    "browser:prd": "NODE_ENV=production webpack-dev-server --config webpack-production.config.js --progress --colors --https",
     "gh-pages:build": "node ./gh-pages-build.js",
     "native:development": "node_modules/react-native/packager/packager.sh --reset-cache",
     "android:setup-port": "adb reverse tcp:8081 tcp:8081"
@@ -40,7 +40,7 @@
     "eslint": "^3.5.0",
     "eslint-plugin-babel": "^3.1.0",
     "eslint-plugin-react": "^6.2.2",
-    "firebase": "^3.4.0",
+    "firebase": "^3.3.0",
     "google-maps": "^3.2.1",
     "highlight.js": "^9.5.0",
     "history": "^2.0.0",
@@ -62,6 +62,7 @@
     "react-swipeable-views": "^0.7.3",
     "react-tap-event-plugin": "^1.0.0",
     "recast": "^0.11.14",
+    "socket.io-client": "^1.4.8",
     "style-loader": "0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.2"

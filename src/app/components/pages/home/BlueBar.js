@@ -2,7 +2,7 @@ import { Card, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import React from 'react';
 import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui/Table';
-require('./bluebar.css');
+require('../../../styles/bluebar.css');
 
 const styles = {
 	CardTitle : {

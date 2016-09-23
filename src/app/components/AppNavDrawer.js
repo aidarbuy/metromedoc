@@ -1,31 +1,17 @@
 import React, {Component, PropTypes} from 'react';
 import Drawer from 'material-ui/Drawer';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import {List, ListItem, makeSelectable} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Subheader from 'material-ui/Subheader';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
 import {spacing, typography, zIndex} from 'material-ui/styles';
-import {cyan500} from 'material-ui/styles/colors';
+import HomeIcon from 'material-ui/svg-icons/action/home';
+import AboutIcon from 'material-ui/svg-icons/action/info';
+import ServicesIcon from 'material-ui/svg-icons/maps/local-hospital';
+import DoctorsIcon from 'material-ui/svg-icons/social/people';
+import ArticlesIcon from 'material-ui/svg-icons/av/library-books';
+import LocationIcon from 'material-ui/svg-icons/maps/place';
+import VirtualIcon from 'material-ui/svg-icons/action/three-d-rotation';
 
 const SelectableList = makeSelectable(List);
-
-// const styles = {
-//   logo: {
-//     cursor: 'pointer',
-//     fontSize: 24,
-//     color: typography.textFullWhite,
-//     lineHeight: `${spacing.desktopKeylineIncrement}px`,
-//     fontWeight: typography.fontWeightLight,
-//     backgroundColor: cyan500,
-//     paddingLeft: spacing.desktopGutter,
-//     marginBottom: 8,
-//   },
-//   version: {
-//     paddingLeft: spacing.desktopGutterLess,
-//     fontSize: 16,
-//   },
-// };
 
 class AppNavDrawer extends Component {
   static propTypes = {
@@ -40,61 +26,6 @@ class AppNavDrawer extends Component {
   static contextTypes = {
     muiTheme: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
-  };
-
-  state = {
-    muiVersions: [],
-  };
-
-  componentDidMount() {
-    const self = this;
-    const url = '/versions.json';
-    const request = new XMLHttpRequest();
-
-    request.onreadystatechange = function() {
-      if (request.readyState === 4 && request.status === 200) {
-        self.setState({
-          muiVersions: JSON.parse(request.responseText),
-          version: JSON.parse(request.responseText)[0],
-        });
-      }
-    };
-
-    request.open('GET', url, true);
-    request.send();
-  }
-
-  firstNonPreReleaseVersion() {
-    let version;
-    for (let i = 0; i < this.state.muiVersions.length; i++) {
-      version = this.state.muiVersions[i];
-      // If the version doesn't contain '-' and isn't 'HEAD'
-      if (!/-/.test(version) && version !== 'HEAD') {
-        break;
-      }
-    }
-    return version;
-  }
-
-  handleVersionChange = (event, index, value) => {
-    if (value === this.firstNonPreReleaseVersion()) {
-      window.location = 'http://www.material-ui.com/';
-    } else {
-      window.location = `http://www.material-ui.com/${value}`;
-    }
-  };
-
-  currentVersion() {
-    if (window.location.hostname === 'localhost') return this.state.muiVersions[0];
-    if (window.location.pathname === '/') {
-      return this.firstNonPreReleaseVersion();
-    } else {
-      return window.location.pathname.replace(/\//g, '');
-    }
-  }
-
-  handleRequestChangeLink = (event, value) => {
-    window.location = value;
   };
 
   handleTouchTapHeader = () => {
@@ -112,98 +43,45 @@ class AppNavDrawer extends Component {
         fontWeight: typography.fontWeightLight,
         backgroundColor: this.context.muiTheme.palette.primary1Color,
         paddingLeft: spacing.desktopGutter,
-        marginBottom: 8,
-      },
-      version: {
-        paddingLeft: spacing.desktopGutterLess,
-        fontSize: 16,
       },
     };
   };
 
   render() {
-    const {
-      location,
-      docked,
-      onRequestChangeNavDrawer,
-      onChangeList,
-      open,
-      style,
-    } = this.props;
+    const {location, docked, onRequestChangeNavDrawer, onChangeList, open, style} = this.props;
+    const iconFillColor = this.context.muiTheme.palette.primary2Color;
 
     return (
-      <Drawer
-        style={style}
-        docked={docked}
-        open={open}
+      <Drawer style={style} docked={docked} open={open} width={200}
         onRequestChange={onRequestChangeNavDrawer}
         containerStyle={{zIndex: zIndex.drawer - 100}}
       >
-        <div style={this.getStyles().logo} onTouchTap={this.handleTouchTapHeader}>
-          Material-UI
-        </div>
-        <span style={this.getStyles().version}>Version:</span>
-        <DropDownMenu
-          value={this.currentVersion()}
-          onChange={this.handleVersionChange}
-          maxHeight={300}
-          style={{width: 181}}
-        >
-          {this.state.muiVersions.map((version) => (
-            <MenuItem
-              key={version}
-              value={version}
-              primaryText={version}
+        <div style={this.getStyles().logo} onTouchTap={this.handleTouchTapHeader}>Metromed-UC</div>
+        <Card style={{maxWidth:200, margin:0, padding:0}}>
+          <CardMedia overlayContentStyle={{bottom: -1}} overlay={
+            <CardTitle
+              title={<a href='tel:(703)-687-4158' style={{
+                color: this.context.muiTheme.palette.alternateTextColor,
+                textDecoration:'none',
+                fontSize:'90%'
+              }}>(703)-687-4158</a>}
+              subtitle={<a href='mailto:info@metromeduc.com' style={{
+                color: this.context.muiTheme.palette.alternateTextColor,
+                textDecoration:'none'
+              }}>info@metromeduc.com</a>}
             />
-          ))}
-        </DropDownMenu>
-        <SelectableList
-          value={location.pathname}
-          onChange={onChangeList}
-        >
-          <ListItem
-            primaryText="Get Started"
-            primaryTogglesNestedList={true}
-            nestedItems={[
-              <ListItem primaryText="Required Knowledge" value="/get-started/required-knowledge" />,
-              <ListItem primaryText="Installation" value="/get-started/installation" />,
-              <ListItem primaryText="Usage" value="/get-started/usage" />,
-              <ListItem primaryText="Server Rendering" value="/get-started/server-rendering" />,
-              <ListItem primaryText="Examples" value="/get-started/examples" />,
-            ]}
-          />
-          <ListItem
-            primaryText="Customization"
-            primaryTogglesNestedList={true}
-            nestedItems={[
-              <ListItem primaryText="Themes" value="/customization/themes" />,
-              <ListItem primaryText="Styles" value="/customization/styles" />,
-              <ListItem primaryText="Colors" value="/customization/colors" />,
-            ]}
-          />
-          <ListItem
-            primaryText="Discover More"
-            primaryTogglesNestedList={true}
-            nestedItems={[
-              <ListItem primaryText="Community" value="/discover-more/community" />,
-              <ListItem primaryText="Contributing" value="/discover-more/contributing" />,
-              <ListItem primaryText="Showcase" value="/discover-more/showcase" />,
-              <ListItem primaryText="Related projects" value="/discover-more/related-projects" />,
-            ]}
-          />
-        </SelectableList>
-        <Divider />
-        <SelectableList
-          value=""
-          onChange={this.handleRequestChangeLink}
-        >
-          <Subheader>Resources</Subheader>
-          <ListItem primaryText="GitHub" value="https://github.com/callemall/material-ui" />
-          <ListItem primaryText="React" value="http://facebook.github.io/react" />
-          <ListItem
-            primaryText="Material Design"
-            value="https://www.google.com/design/spec/material-design/introduction.html"
-          />
+          }>
+            <img src='https://firebasestorage.googleapis.com/v0/b/metromeduc.appspot.com/o/images%2Fteam%2Fthree-medics-thumb.jpg?alt=media&token=3fa958ba-ffe1-4ea4-bbb6-6d732ce59c6b' />
+          </CardMedia>
+        </Card>
+        <SelectableList value={location.pathname} onChange={onChangeList}>
+          <ListItem primaryText="Home"         value="/"         innerDivStyle={{paddingLeft:55}} leftIcon={<HomeIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="About Us"     value="/about"    innerDivStyle={{paddingLeft:55}} leftIcon={<AboutIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Services"     value="/services" innerDivStyle={{paddingLeft:55}} leftIcon={<ServicesIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Doctors"      value="/doctors"  innerDivStyle={{paddingLeft:55}} leftIcon={<DoctorsIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Articles"     value="/articles" innerDivStyle={{paddingLeft:55}} leftIcon={<ArticlesIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Location"     value="/location" innerDivStyle={{paddingLeft:55}} leftIcon={<LocationIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Virtual Tour" value="/virtual"  innerDivStyle={{paddingLeft:55}} leftIcon={<VirtualIcon style={{fill:iconFillColor}}/>}/>
         </SelectableList>
       </Drawer>
     );

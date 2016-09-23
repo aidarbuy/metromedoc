@@ -42,7 +42,7 @@ export default ({ accentColor, imgSubtitleColor, language, primaryColor, textCol
 		<CardMedia overlay={
 			<CardTitle
 				title = "Matt, Doreen and Karl"
-				subtitle = "Members of our team."
+				subtitle = "Members of our team"
 				subtitleStyle = {{
 					color: imgSubtitleColor,
 				}}
