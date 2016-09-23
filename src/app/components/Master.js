@@ -121,7 +121,8 @@ class Master extends Component {
       },
       root: {
         // paddingTop: spacing.desktopKeylineIncrement,
-        minHeight: 400,
+        // paddingTop: 0,
+        // minHeight: 400,
       },
       content: {
         // margin: spacing.desktopGutter,
@@ -204,18 +205,7 @@ class Master extends Component {
     const router = this.context.router;
     const styles = this.getStyles();
 
-    // const title =
-    //   router.isActive('/') ? 'Metromed-UC' :
-    //   router.isActive('/about') ? 'About Us' :
-    //   router.isActive('/services') ? 'Services' :
-    //   router.isActive('doctors') ? 'Doctors' :
-    //   router.isActive('articles/') ? 'Articles' :
-    //   router.isActive('/location') ? 'Location' :
-    //   router.isActive('/virtual') ? 'Virtual Tour' :
-    //   router.isActive('/gallery') ? 'Photo gallery' : 'Metromed-UC';
-
     const title =
-      // window.location.pathname.match(/^\/doctors\/\d+\/?$/) ? "Doctors" :
       router.isActive('/') ? 'Metromed-UC' :
       router.isActive('/about') ? 'About Us' :
       router.isActive('/services') ? 'Services' :

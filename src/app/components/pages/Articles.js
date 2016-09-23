@@ -21,32 +21,25 @@ class Articles extends Component {
 	render() {
 		const { articles } = this.state;
 
-		var content;
-		if (articles.length === 0) {
-			content = <CircularProgress style={{marginLeft:'auto', marginRight:'auto'}} />
-		} else {
-			content = articles.map((article, i) => (
-				<div className="articles-item" key={i}>
-					<ArticleCard
-						title    = { article.title }
-						subtitle = { article.date }
-						image 	 = { article.img.src }
-						href 	 	 = { article.img.href }
-						teaser   = { article.teaser }
-					/>
-				</div>
-			))
-		}
-
 		return (
 			<section>
 				{/*<Helmet title="Articles - MetromedUC" />*/}
 				<Title render={(previousTitle) => `Articles - ${previousTitle}`} />
 
-				{/*<h3 style={{ color:primary3Color }}>Articles</h3>*/}
-
 				<div className="flex-container" style={{ marginTop:20 }}>
-					{content}
+					{articles.length === 0 ?
+          <CircularProgress style={{marginLeft:'auto', marginRight:'auto'}}/> :
+          articles.map((article, i) => (
+            <div className="articles-item" key={i}>
+              <ArticleCard
+                title    = { article.title }
+                subtitle = { article.date }
+                image 	 = { article.img.src }
+                href 	 	 = { article.img.href }
+                teaser   = { article.teaser }
+              />
+            </div>
+          ))}
 				</div>
 			</section>
 		);
