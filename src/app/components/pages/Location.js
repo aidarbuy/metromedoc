@@ -30,7 +30,7 @@ class Location extends React.Component {
 				{/*<Helmet title="Contacts and Location - Metromed UC"/>*/}
 				<Title render={(previousTitle) => `Location - ${previousTitle}`} />
 
-				<h4 style={{color:primary3Color}}>{title}</h4>
+				<h4 style={{color:primary2Color}}>{title}</h4>
 
 				<div className="flex-container" style={{marginTop:-30}}>
 

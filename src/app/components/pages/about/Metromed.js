@@ -63,7 +63,7 @@ export default ({imgSubtitleColor, primaryColor, textColor}) => (
           return (
             <div key={i}>
               <ListItem disabled style={{color:textColor}}>{item}</ListItem>
-              <Divider/>
+              {i < 7 ? <Divider/> : null}
             </div>
           );
         })}

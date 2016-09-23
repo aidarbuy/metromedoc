@@ -28,7 +28,7 @@ class Doctor extends React.Component {
 	}
 
 	render() {
-		const { primary3Color, textColor } = this.context.muiTheme.palette;
+		const { primary2Color, textColor } = this.context.muiTheme.palette;
 		const { id } = this.props.params;
 		const doctor = this.getDoctor(id);
 
@@ -47,7 +47,7 @@ class Doctor extends React.Component {
 					/>
 				</div>
 
-				<h3 style={{color:primary3Color, textTransform:'capitalize'}}>
+				<h3 style={{color:primary2Color, textTransform:'capitalize'}}>
 					Doctor {doctor.firstname} {doctor.lastname}
 				</h3>
 

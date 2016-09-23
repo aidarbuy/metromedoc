@@ -2,9 +2,9 @@ import React from 'react';
 import { Tab, Tabs } from 'material-ui/Tabs';
 import { getMenuItems } from '../data/menu-items';
 
-export default ({bgColor, handleActive, isAppbarFixed, route})=>(
+export default ({bgColor, handleActive, isAppbarFixed})=>(
 	<div style={{background:bgColor, paddingTop:57}}>
-		<Tabs className="apptabs-icons-labels" value={window.location.pathname} style={{marginLeft:'auto', marginRight:'auto', paddingTop:7, maxWidth:1000}}>
+		<Tabs className="apptabs-icons-labels" value={"/" + window.location.pathname.split('/')[1]} style={{marginLeft:'auto', marginRight:'auto', paddingTop:17, maxWidth:1000}}>
 			{getMenuItems().map((item, i) => (
 				<Tab key={i} icon={item.icon} label={item.name} onActive={handleActive} value={item.route}/>
 			))}

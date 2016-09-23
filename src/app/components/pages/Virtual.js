@@ -8,8 +8,8 @@ class Virtual extends React.Component {
   }
 
   render() {
-    const windowScreenHeight = window.screen.height;
-    const height = windowScreenHeight - this.context.muiTheme.appBar.height * 2 - this.context.muiTheme.toolbar.height * 2 - 64;
+    var height = window.innerHeight - this.context.muiTheme.appBar.height*2 - this.context.muiTheme.toolbar.height*2 - 64;
+    if (height < 300) height = 300;
 
     const { primary2Color } = this.context.muiTheme.palette;
 

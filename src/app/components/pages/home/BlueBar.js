@@ -1,5 +1,6 @@
 import { Card, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
+import Link from 'react-router/lib/Link';
 import React from 'react';
 import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui/Table';
 require('../../../styles/bluebar.css');
@@ -33,25 +34,13 @@ export default ({bgColor, textColor})=>(
 			<Card className="cell" style={{ background:bgColor }}>
 				<CardTitle title="Contact Info" titleColor={textColor} style={styles.CardTitle}/>
 				<CardText color={textColor} style={styles.CardText}>
+					<p><a href="tel:7036874158" style={getLinkStyles(textColor)}>(703) 687-4158</a></p>
 					<p>
-						<a href="tel:7036874158" style={getLinkStyles(textColor)}>
-							<span>(703) 687-4158</span>
-						</a>
-					</p>
-					<p>
-						<a href="/location" style={getLinkStyles(textColor)}>
-							<span>952 Edwards Ferry Rd NE</span>
-						</a>
+						<Link to="/location" style={getLinkStyles(textColor)}>952 Edwards Ferry Rd NE</Link>
 						<br/>
-						<a href="/location" style={getLinkStyles(textColor)}>
-							<span>Leesburg, VA 20176</span>
-						</a>
+						<Link to="/location" style={getLinkStyles(textColor)}>Leesburg, VA 20176</Link>
 					</p>
-					<p>
-						<a href="mailto:info@metromeduc.com" style={getLinkStyles(textColor)}>
-							<span>info@metromeduc.com</span>
-						</a>
-					</p>
+					<p><a href="mailto:info@metromeduc.com" style={getLinkStyles(textColor)}>info@metromeduc.com</a></p>
 				</CardText>
 			</Card>
 		</div>

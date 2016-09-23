@@ -4,7 +4,6 @@ import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import spacing from 'material-ui/styles/spacing';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {darkWhite, lightWhite, grey200, grey900, blue500, blue700, blue900} from 'material-ui/styles/colors';
 import AppNavDrawer from './AppNavDrawer';
 import AppTabs from './AppTabs';
 import Footer from './Footer';
@@ -13,17 +12,57 @@ import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
-import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
+import MoreVert from 'material-ui/svg-icons/navigation/more-vert';
 require('../styles/layout.css');
 require('../styles/typography.css');
+
+// console.debug(require('material-ui/styles/colors'));
+
+import {
+
+  red500,     pink500,      purple500,      deepPurple500,
+  red700,     pink700,      purple700,      deepPurple700,
+  red900,     pink900,      purple900,      deepPurple900,
+
+  indigo500,  blue500,      lightBlue500,   cyan500,
+  indigo700,  blue700,      lightBlue700,   cyan700,
+  indigo900,  blue900,      lightBlue900,   cyan900,
+
+  teal500,    green500,     lightGreen500,  lime500,
+  teal700,    green700,     lightGreen700,  lime700,
+  teal900,    green900,     lightGreen900,  lime900,
+
+  yellow500,  amber500,     orange500,      deepOrange500,
+  yellow700,  amber700,     orange700,      deepOrange700,
+  yellow900,  amber900,     orange900,      deepOrange900,
+
+                            grey200,
+  brown500,   blueGrey500,  grey500,
+  brown700,   blueGrey700,  grey700,
+  brown900,   blueGrey900,  grey900,
+
+  black,       //   0,   0,   0, 1.00
+  fullBlack,   //   0,   0,   0, 1.00
+  darkBlack,   //   0,   0,   0, 0.87
+  lightBlack,  //   0,   0,   0, 0.54
+  minBlack,    //   0,   0,   0, 0.26
+  faintBlack,  //   0,   0,   0, 0.12
+  transparent, //   0,   0,   0, 0.00
+
+  white,       // 255, 255, 255, 1.00
+  fullWhite,   // 255, 255, 255, 1.00
+  darkWhite,   // 255, 255, 255, 0.87
+  lightWhite,  // 255, 255, 255, 0.54
+
+} from 'material-ui/styles/colors';
 
 lightBaseTheme.palette.primary1Color = blue500;
 lightBaseTheme.palette.primary2Color = blue700;
 lightBaseTheme.palette.primary3Color = grey900;
 lightBaseTheme.palette.alternateTextColor = grey200;
-// lightBaseTheme.palette.accent1Color =
-// lightBaseTheme.palette.accent2Color =
-// lightBaseTheme.palette.accent3Color =
+// lightBaseTheme.palette.accent1Color = red500;
+// lightBaseTheme.palette.accent2Color = purple700;
+// lightBaseTheme.palette.accent3Color = purple900;
 // lightBaseTheme.palette.textColor =
 // lightBaseTheme.palette.secondaryTextColor =
 // lightBaseTheme.palette.alternateTextColor =
@@ -163,14 +202,25 @@ class Master extends Component {
     const {prepareStyles} = this.state.muiTheme;
 
     const router = this.context.router;
-    console.debug(window.location);
     const styles = this.getStyles();
+
+    // const title =
+    //   router.isActive('/') ? 'Metromed-UC' :
+    //   router.isActive('/about') ? 'About Us' :
+    //   router.isActive('/services') ? 'Services' :
+    //   router.isActive('doctors') ? 'Doctors' :
+    //   router.isActive('articles/') ? 'Articles' :
+    //   router.isActive('/location') ? 'Location' :
+    //   router.isActive('/virtual') ? 'Virtual Tour' :
+    //   router.isActive('/gallery') ? 'Photo gallery' : 'Metromed-UC';
+
     const title =
+      // window.location.pathname.match(/^\/doctors\/\d+\/?$/) ? "Doctors" :
       router.isActive('/') ? 'Metromed-UC' :
       router.isActive('/about') ? 'About Us' :
       router.isActive('/services') ? 'Services' :
-      router.isActive('doctors') ? 'Doctors' :
-      router.isActive('articles/') ? 'Articles' :
+      window.location.pathname.match(/doctors/g) == "doctors" ? "Doctors" :
+      window.location.pathname.match(/articles/g) == "articles" ? "Articles" :
       router.isActive('/location') ? 'Location' :
       router.isActive('/virtual') ? 'Virtual Tour' :
       router.isActive('/gallery') ? 'Photo gallery' : 'Metromed-UC';
@@ -198,7 +248,7 @@ class Master extends Component {
           title={title}
           zDepth={0}
           iconElementRight={
-            <IconMenu iconButtonElement={<IconButton><ExpandMore/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
+            <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
               <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
               {/*<MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>} onClick={handleAppBarClick('/gallery')}/>*/}
               {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}

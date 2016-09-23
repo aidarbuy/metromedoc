@@ -74,7 +74,7 @@ class AppNavDrawer extends Component {
             <img src='https://firebasestorage.googleapis.com/v0/b/metromeduc.appspot.com/o/images%2Fteam%2Fthree-medics-thumb.jpg?alt=media&token=3fa958ba-ffe1-4ea4-bbb6-6d732ce59c6b' />
           </CardMedia>
         </Card>
-        <SelectableList value={location.pathname} onChange={onChangeList}>
+        <SelectableList value={"/" + location.pathname.split('/')[1]} onChange={onChangeList}>
           <ListItem primaryText="Home"         value="/"         innerDivStyle={{paddingLeft:55}} leftIcon={<HomeIcon style={{fill:iconFillColor}}/>}/>
           <ListItem primaryText="About Us"     value="/about"    innerDivStyle={{paddingLeft:55}} leftIcon={<AboutIcon style={{fill:iconFillColor}}/>}/>
           <ListItem primaryText="Services"     value="/services" innerDivStyle={{paddingLeft:55}} leftIcon={<ServicesIcon style={{fill:iconFillColor}}/>}/>
