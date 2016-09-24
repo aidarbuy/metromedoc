@@ -1,13 +1,16 @@
 import { Card, CardActions, CardHeader, CardMedia, CardTitle } from 'material-ui/Card';
 import GMaps from './location/GoogleMaps';
-// import Helmet from 'react-helmet';
 import Title from 'react-title-component';
 import RaisedButton from 'material-ui/RaisedButton';
-import React from 'react';
+import React, {Component} from 'react';
 import PhonelinkRing from 'material-ui/svg-icons/communication/phonelink-ring';
 import MapsPlace from 'material-ui/svg-icons/maps/place';
 
-class Location extends React.Component {
+export default class Location extends Component {
+	static contextTypes = {
+		muiTheme: React.PropTypes.object,
+	}
+
 	constructor(props) {
 		super(props);
 	}
@@ -27,7 +30,6 @@ class Location extends React.Component {
 
 		return (
 			<section>
-				{/*<Helmet title="Contacts and Location - Metromed UC"/>*/}
 				<Title render={(previousTitle) => `Location - ${previousTitle}`} />
 
 				<h4 style={{color:primary2Color}}>{title}</h4>
@@ -41,10 +43,10 @@ class Location extends React.Component {
 								subtitle = {<a href={"mailto:" + email} style={{color:primary2Color, fontSize:16}}>{email}</a>}
 								avatar={<PhonelinkRing style={{fill:primary3Color, marginTop:12, marginLeft:10}}/>}
 							/>
-							<CardMedia overlay={<CardTitle title={text}/>}>
+							<CardMedia overlay={<CardTitle title={text} style={{paddingTop:5, paddingBottom:10}}/>}>
 								<img src="images/doctors/lounge-820x465.jpg" />
 							</CardMedia>
-							<CardActions style={{textAlign:'center'}}>
+							<CardActions style={{textAlign:'center', paddingTop:20, paddingBottom:20}}>
 								<RaisedButton href={"tel:" + phone} label="Call Us" secondary={true}/>
 								<RaisedButton href={"mailto:" + email} label="Email Us" primary={true}/>
 							</CardActions>
@@ -58,9 +60,9 @@ class Location extends React.Component {
 								subtitle={<a href={leesburg} style={{color:primary2Color, fontSize:16}}>{city}</a>}
 								avatar = {<MapsPlace color={primary3Color} style={{marginTop:12, marginLeft:10, width:30, height:30}}/>}
               />
-							<CardMedia><GMaps/></CardMedia>
-							<CardMedia overlay={<CardTitle title={text2}/>}/>
-							<CardActions style={{textAlign:'center'}}>
+							<CardMedia><GMaps height={385}/></CardMedia>
+							<CardMedia overlay={<CardTitle title={text2} style={{paddingTop:5, paddingBottom:10}}/>}/>
+							<CardActions style={{textAlign:'center', paddingTop:20, paddingBottom:20}}>
 								<RaisedButton href={location} label="Open in Google Maps" primary={true}/>
 							</CardActions>
 						</Card>
@@ -69,10 +71,4 @@ class Location extends React.Component {
 			</section>
 		);
 	}
-}
-
-Location.contextTypes = {
-	muiTheme: React.PropTypes.object,
 };
-
-export default Location;

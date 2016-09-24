@@ -48,7 +48,7 @@ class Doctor extends React.Component {
 				</div>
 
 				<h3 style={{color:primary2Color, textTransform:'capitalize'}}>
-					Doctor {doctor.firstname} {doctor.lastname}
+					Dr. {doctor.firstname} {doctor.lastname}
 				</h3>
 
 				<img width="100%" src={"/images/doctors/" + doctor.img.big} />
