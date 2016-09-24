@@ -18,8 +18,8 @@ const Icon = React.createClass({
 });
 
 export default ({color, bgColor}) => (
-	<Toolbar style={{marginTop:30, background:bgColor}}>
-		<ToolbarGroup firstChild={false}>
+	<Toolbar style={{marginTop:0, background:bgColor}}>
+		<ToolbarGroup firstChild={true}>
 			{dataSocial.slice(0, 3).map((icon, index) => (
 				<a key={icon.name} href={icon.href}>
 					<IconButton touch tooltip={icon.desc} tooltipPosition="top-right" style={{marginTop:4}} tooltipStyles={{textTransform:'none'}}>
@@ -29,8 +29,9 @@ export default ({color, bgColor}) => (
 			))}
 		</ToolbarGroup>
 
-		<ToolbarGroup lastChild={false}>
-			<ToolbarTitle style={{fontSize:16, color:color}} text="&copy; 2016 Amygdala LLC"/>
+		<ToolbarGroup lastChild={true}>
+			{/*<ToolbarTitle style={{fontSize:16, color:color}} text="&copy; 2016 Amygdala LLC"/>*/}
+			<ToolbarTitle style={{fontSize:16, color:color}} text="2016 Amygdala LLC"/>
 		</ToolbarGroup>
 	</Toolbar>
 );

@@ -13,10 +13,9 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert';
+import Link from 'react-router/lib/Link';
 require('../styles/layout.css');
 require('../styles/typography.css');
-
-// console.debug(require('material-ui/styles/colors'));
 
 import {
 
@@ -153,16 +152,13 @@ class Master extends Component {
         lineHeight: '25px',
         fontSize: 12,
       },
-      browserstackLogo: {
-        margin: '0 3px',
-      },
       iconButton: {
         color: darkWhite,
       },
     };
 
     if (this.props.width === MEDIUM || this.props.width === LARGE) {
-      styles.content = Object.assign(styles.content, styles.contentWhenMedium);
+      // styles.content = Object.assign(styles.content, styles.contentWhenMedium);
     }
 
     return styles;
@@ -240,7 +236,8 @@ class Master extends Component {
           iconElementRight={
             <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
               <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
-              {/*<MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>} onClick={handleAppBarClick('/gallery')}/>*/}
+              <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
+              <MenuItem primaryText="Virtual Tour" containerElement={<Link to='/virtual'/>}/>
               {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}
               {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
             </IconMenu>
