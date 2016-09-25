@@ -12,7 +12,7 @@ This is the website and application of Metromed-UC.
 ## Installation
 After cloning the repository, install dependencies:
 ```sh
-cd <project folder>/metromed
+cd metromed
 npm install
 ```
 
