@@ -55,7 +55,6 @@ const config = {
     new CopyWebpackPlugin([
       {from: 'src/www/css', to: 'css'},
       {from: 'src/www/images', to: 'images'},
-      {from: 'src/www/js', to: 'js'},
       {from: 'src/www/layerslider', to: 'layerslider'},
       {from: 'src/www/nanogallery', to: 'nanogallery'},
       {from: 'src/www/index.html'},

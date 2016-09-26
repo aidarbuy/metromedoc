@@ -27,6 +27,7 @@ export default class Virtual extends Component {
 
   render() {
     const {primary2Color} = this.context.muiTheme.palette;
+    const params0 = "pb=!1m0!3m2!1sen!2sus!4v1435317827152!6m8!1m7!1sDV3R4lZfUPwAAAQqg2kDFw!2m2!1d39.116755!2d-77.539826!3f328!4f0!5f0.7820865974627469"
     return (
       <section>
         <Title render={(previousTitle) => `Virtual Tour - ${previousTitle}`} />
@@ -35,7 +36,7 @@ export default class Virtual extends Component {
 
         <iframe
           ref="iframe"
-          src='https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1435317827152!6m8!1m7!1sDV3R4lZfUPwAAAQqg2kDFw!2m2!1d39.116755!2d-77.539826!3f328!4f0!5f0.7820865974627469'
+          src={'https://www.google.com/maps/embed?' + params0}
           style={{width:'100%', height:this.state.height}}
           frameBorder="0"
           allowFullScreen

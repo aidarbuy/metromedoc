@@ -4,7 +4,7 @@ function getRouteName(index) {
 		case 1  : return "/about";
 		case 2  : return "/services";
 		case 3  : return "/doctors";
-		case 4  : return "/articles";
+		case 4  : return "/AArticles";
 		case 5  : return "/location";
 		case 6  : return "/virtual";
 		default : return "/";
@@ -21,7 +21,7 @@ function getInitIndex(route) {
 		case "/doctors/matthew-beckwith"  : return 3;
 		case "/doctors/patricia-micozzi"  : return 3;
 		case "/doctors/brian-rader"       : return 3;
-		case "/articles"  : return 4;
+		case "/AArticles"  : return 4;
 		case "/location"  : return 5;
 		case "/virtual"   : return 6;
 		default           : return 1;

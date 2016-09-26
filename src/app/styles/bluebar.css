@@ -6,9 +6,11 @@
 	line-height: 200px;
 	opacity: 0.9;
 	transition: opacity 2s ease-out 1s;
+	-webkit-transition: opacity 2s ease-out 1s;
 }
 
 .cell:hover {
-	 transition: opacity 2s ease-out 1s;
-	 opacity: 1;
- }
+	transition: opacity 2s ease-out 1s;
+	-webkit-transition: opacity 2s ease-out 1s;
+	opacity: 1;
+}

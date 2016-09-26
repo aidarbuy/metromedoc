@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
 
 export default class TestLab extends Component {
 	constructor(props) {
@@ -10,7 +9,7 @@ export default class TestLab extends Component {
 	render() {
 		return (
 			<section>
-				<Helmet title="Metromed Test Lab" />
+				<Title render={(previousTitle) => `TestLab - ${previousTitle}`} />
 
 				<h3>TestLab</h3>
 

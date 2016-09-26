@@ -21,6 +21,8 @@ const config = {
     },
   },
   // Configuration for dev server
+  "browser:development": "webpack-dev-server --config webpack-dev-server.config.js --progress --colors --inline --https",
+
   devServer: {
     contentBase: 'src/www',
     devtool: 'eval',
