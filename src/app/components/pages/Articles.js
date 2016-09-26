@@ -13,7 +13,7 @@ import ArticleCard from '../cards/ArticleCard';
 
 				<div className="flex-container" style={{marginTop: 20}}>
           {articlesStore.articles.length === 0 ?
-            <CircularProgress style={{margin:'20px auto'}}/> :
+            <CircularProgress style={{margin:'50px auto', marginTop:'30px'}}/> :
             articlesStore.articles.map((article, i) => (
             <div className="articles-item" key={i}>
               <ArticleCard

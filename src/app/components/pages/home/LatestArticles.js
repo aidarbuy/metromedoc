@@ -1,73 +1,49 @@
-import ArticleCard from '../../cards/ArticleCard';
-import CircularProgress from 'material-ui/CircularProgress';
-import { database } from '../../../data/firebase';
+import {observer} from 'mobx-react';
+import {Component} from 'react';
 import Paper from 'material-ui/Paper';
+import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import latestArticlesStore from '../../../data/latestArticlesStore';
+import CircularProgress from 'material-ui/CircularProgress';
+import ArticleCard from '../../cards/ArticleCard';
 import RaisedButton from 'material-ui/RaisedButton';
-import React from 'react';
-import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import Link from 'react-router/lib/Link';
 
-class LatestArticles extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			content: <CircularProgress style={{ marginLeft:'auto', marginRight:'auto' }} />,
-		};
-	}
-
-	componentDidMount() {
-		const articlesRef = database.ref('/articles').orderByKey().limitToLast(4);
-		articlesRef.once('value').then((dataSnapshot) => {
-			const articles = dataSnapshot.val();
-			var content = [];
-			Object.keys(articles).map((item, i) => {
-				const article = articles[item];
-				const articleCard = (
-					<div className="home-articles-item" key={article.title}>
-						<ArticleCard
-							title    = { article.title }
-							subtitle = { article.date }
-							image 	 = { article.img.src }
-							href 	 = { article.img.href }
-							teaser   = { article.teaser }
-						/>
-					</div>
-				);
-
-				content.push(articleCard);
-			});
-			this.setState({content: content.reverse()});
-		});
-	}
-
+@observer class LatestArticles extends Component {
 	render() {
-		const { accentColor, canvasColor } = this.props;
-		const { primary3Color, accent3Color } = this.context.muiTheme.palette;
+		const {canvasColor} = this.props;
 
 		return (
-			<Paper style={{ marginTop:20 }}>
+			<Paper style={{marginTop: 20}}>
 				<Toolbar>
-					<ToolbarGroup style={{marginLeft:'auto', marginRight:'auto'}}>
-						<ToolbarTitle text="Articles" />
+					<ToolbarGroup style={{marginLeft: 'auto', marginRight: 'auto'}}>
+						<ToolbarTitle text="Latest Articles"/>
 					</ToolbarGroup>
 				</Toolbar>
 
 				<div className="flex-container" style={{ marginTop:0 }}>
-					{this.state.content}
-				</div>
+          {latestArticlesStore.articles.length === 0 ?
+            <CircularProgress style={{margin:'50px auto'}}/> :
+            latestArticlesStore.articles.map((article, i) => (
+              <div className="home-articles-item" key={i}>
+                <ArticleCard
+                  title    = { article.title }
+                  subtitle = { article.date }
+                  image 	 = { article.img.src }
+                  href 	 	 = { article.img.href }
+                  teaser   = { article.teaser }
+                />
+              </div>
+            ))}
+        </div>
 
 				<Toolbar style={{width:'100%', background:canvasColor}}>
 					<ToolbarGroup style={{width:'100%', textAlign:'center'}}>
-						<RaisedButton 
-							label="All Articles"
+						<RaisedButton
+              label="All Articles"
 							containerElement={<Link to="/articles"/>}
 							fullWidth={true}
-							secondary={true}
-							style={{
-								width: '100%',
-								marginLeft: 'auto',
-								marginRight: 'auto'
-							}}
+              secondary={true}
+							style={{width: '100%', marginLeft: 'auto', marginRight: 'auto'}}
 						/>
 					</ToolbarGroup>
 				</Toolbar>
@@ -75,9 +51,5 @@ class LatestArticles extends React.Component {
 		);
 	}
 }
-
-LatestArticles.contextTypes = {
-	muiTheme: React.PropTypes.object,
-};
 
 export default LatestArticles;
