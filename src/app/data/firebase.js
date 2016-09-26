@@ -1,4 +1,4 @@
-var firebase = require("firebase/app");
+var firebase = require('firebase/app');
 require("firebase/auth");
 require("firebase/database");
 require("firebase/storage");
@@ -10,24 +10,12 @@ var config = {
 	storageBucket: "metromeduc.appspot.com",
 	// messagingSenderId: "722496589888"
 };
-
 firebase.initializeApp(config);
-    
-// Get a reference to the database service
-var database = firebase.database();
 
-// Get a reference to the storage service, which is used to create references in your storage bucket
+var database = firebase.database();
 var storage = firebase.storage();
 
-var articles;
-const getArticles = () => {
-	database.ref('/AArticles').once('value').then((dataSnapshot) => {
-		articles = dataSnapshot.val().reverse();
-	});
-};
-
 var githubAuthProvider = new firebase.auth.GithubAuthProvider();
-
 const authorizeWithGithub = () => {
 	firebase.auth().signInWithRedirect(githubAuthProvider).then(result => {
 		// This gives you a GitHub Access Token. You can use it to access the GitHub API.
@@ -48,4 +36,4 @@ const authorizeWithGithub = () => {
 	});
 };
 
-module.exports = { database, getArticles, storage, authorizeWithGithub };
+module.exports = { database, storage, authorizeWithGithub };

@@ -7,7 +7,7 @@ import React from 'react';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import Link from 'react-router/lib/Link';
 
-class HomeArticles extends React.Component {
+class LatestArticles extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -15,7 +15,7 @@ class HomeArticles extends React.Component {
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		const articlesRef = database.ref('/articles').orderByKey().limitToLast(4);
 		articlesRef.once('value').then((dataSnapshot) => {
 			const articles = dataSnapshot.val();
@@ -76,8 +76,8 @@ class HomeArticles extends React.Component {
 	}
 }
 
-HomeArticles.contextTypes = {
+LatestArticles.contextTypes = {
 	muiTheme: React.PropTypes.object,
 };
 
-export default HomeArticles;
+export default LatestArticles;
