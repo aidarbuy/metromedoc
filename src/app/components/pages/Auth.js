@@ -3,7 +3,6 @@ import Title from 'react-title-component';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
 import { authorizeWithGithub } from '../../data/firebase';
-require('bootstrap');
 
 const styles = {
   button: {
