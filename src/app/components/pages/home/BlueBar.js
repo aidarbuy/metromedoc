@@ -97,7 +97,7 @@ export default ({bgColor, textColor})=>(
 		<div className="bluebar-item">
 			<Card className="cell" style={{ background:bgColor }}>
 				{/*<CardTitle title="Holidays" titleColor={textColor} style={styles.CardTitle}/>*/}
-				<CardTitle title="New Hours of Operation starting October 1 st 2016" titleColor={textColor} style={styles.CardTitle}/>
+				<CardTitle title="New Hours of Operation starting October 1&nbsp;st 2016" titleColor={textColor} style={styles.CardTitle}/>
 				<CardText color={textColor} style={styles.CardText}>
 					{/*<p>Major Holidays Observed</p>*/}
 					<p>Monday through Friday 9 am to 7 pm<br/>Closed Saturdays and Sundays</p>

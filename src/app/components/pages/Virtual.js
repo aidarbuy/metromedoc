@@ -12,16 +12,20 @@ export default class Virtual extends Component {
   }
 
   componentDidMount() {
+    // window.scrollTo(0, 0);
     this.updateIframeHeight();
     window.addEventListener('resize', () => this.updateIframeHeight());
   }
 
   updateIframeHeight() {
-    const iframe = document.getElementById('iframe');
-    const y = iframe.getBoundingClientRect().top;
-    const toolbarHeight = this.context.muiTheme.toolbar.height;
-    const height = window.innerHeight - (y + toolbarHeight + 7);
-    this.setState({y, height});
+    if (window.location.pathname === "/virtual") {
+      const iframe = document.getElementById('iframe');
+      const y = iframe.getBoundingClientRect().top;
+      const toolbarHeight = this.context.muiTheme.toolbar.height;
+      const height = window.innerHeight - (y + toolbarHeight + 7);
+      // if (height > 1000) this.updateIframeHeight();
+      this.setState({y, height});
+    }
   }
 
   render() {

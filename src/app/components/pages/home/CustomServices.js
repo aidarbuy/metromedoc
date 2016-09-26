@@ -8,32 +8,34 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Link from 'react-router/lib/Link';
 import React from 'react';
 
-const styles = {
-	Card : {
-		padding: 20,
-		paddingTop: 40,
-		textAlign: 'center',
-		minHeight: 380,
-		marginTop: 'auto',
-		marginBottom: 'auto',
-	},
-	CardText : {
-		margin: 0,
-		padding: 0,
-		marginTop: 20,
-		marginBottom: 20,
-		// border:'1px solid blue',
-		fontSize: 16,
-	},
-	CardTitle : {
-		// margin: 0,
-		// marginTop: 10,
-		padding: 0,
-	},
-	p : {
-		margin: 0,
-		padding: 0
-	},
+const getStyles = () => {
+	return {
+		Card: {
+			padding: 20,
+			paddingTop: 40,
+			textAlign: 'center',
+			minHeight: 380,
+			marginTop: 'auto',
+			marginBottom: 'auto',
+		},
+		CardText: {
+			margin: 0,
+			padding: 0,
+			marginTop: 20,
+			marginBottom: 20,
+			// border:'1px solid blue',
+			fontSize: 16,
+		},
+		CardTitle: {
+			// margin: 0,
+			// marginTop: 10,
+			padding: 0,
+		},
+		p: {
+			margin: 0,
+			padding: 0
+		},
+	};
 };
 
 const getIconStyle = (iconColor, hoverColor) => {
@@ -44,7 +46,7 @@ const getIconStyle = (iconColor, hoverColor) => {
 		width: 70,
 		height: 70,
 	};
-}
+};
 
 const getIcon = (i, iconColor, hoverColor) => {
 	switch (i) {
@@ -53,32 +55,29 @@ const getIcon = (i, iconColor, hoverColor) => {
 		case 2: return <IconImages styles={getIconStyle(iconColor, hoverColor)} />;
 		case 3: return <IconHistory styles={getIconStyle(iconColor, hoverColor)} />;
 	}
-}
+};
 
-export default ({ iconColor, hoverColor, titleColor }) => (
-	<div className="flex-container" style={{ marginTop:0, marginBottom:0 }}>
+export default ({iconColor, hoverColor, titleColor}) => (
+	<div className="flex-container" style={{marginTop: 0, marginBottom: 0}}>
 		{dataCustomServices.map((item, i) => (
 			<div className="custom-services-item" key={i}>
-				<Card style={styles.Card}>
+				<Card style={getStyles().Card}>
 					<CardMedia>
 						{getIcon(i, iconColor, hoverColor)}
 					</CardMedia>
 
 					<CardTitle
-						style 	   = { styles.CardTitle }
+						style 	   = { getStyles().CardTitle }
 						title      = { item.name }
 						titleColor = { titleColor }
 					/>
 
-					<CardText style={styles.CardText}>
-						<p style={styles.p}
-							dangerouslySetInnerHTML={{ __html:item.desc }}
-						/>
+					<CardText style={getStyles().CardText}>
+						<p style={getStyles().p} dangerouslySetInnerHTML={{__html: item.desc}}/>
 					</CardText>
 
 					<CardActions>
-            <RaisedButton
-              containerElement={<Link to={item.href}/>}
+            <RaisedButton containerElement={<Link to={item.href}/>}
               label      = { item.button }
               primary    = { false }
               secondary  = { true }

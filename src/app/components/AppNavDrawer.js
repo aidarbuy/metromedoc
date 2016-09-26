@@ -89,7 +89,7 @@ class AppNavDrawer extends Component {
           <ListItem primaryText="Doctors"      value="/doctors"  innerDivStyle={{paddingLeft:55}} leftIcon={<DoctorsIcon style={{fill:iconFillColor}}/>}/>
           <ListItem primaryText="Articles"     value="/articles" innerDivStyle={{paddingLeft:55}} leftIcon={<ArticlesIcon style={{fill:iconFillColor}}/>}/>
           <ListItem primaryText="Location"     value="/location" innerDivStyle={{paddingLeft:55}} leftIcon={<LocationIcon style={{fill:iconFillColor}}/>}/>
-          <ListItem primaryText="Virtual Tour" value="/virtual"  innerDivStyle={{paddingLeft:55}} leftIcon={<VirtualIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Virtual Tour" value="/virtual" href="/virtual"  innerDivStyle={{paddingLeft:55}} leftIcon={<VirtualIcon style={{fill:iconFillColor}}/>}/>
         </SelectableList>
       </Drawer>
     );

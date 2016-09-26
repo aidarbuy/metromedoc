@@ -177,7 +177,7 @@ class Master extends Component {
   };
 
   handleChangeList = (event, value) => {
-    this.context.router.push(value);
+    if (value !== "/virtual") this.context.router.push(value);
     this.setState({
       navDrawerOpen: false,
     });
@@ -237,7 +237,7 @@ class Master extends Component {
             <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
               <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
               <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
-              <MenuItem primaryText="Virtual Tour" containerElement={<Link to='/virtual'/>}/>
+              <MenuItem primaryText="Virtual Tour" href="/virtual"/>
               {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}
               {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
             </IconMenu>
