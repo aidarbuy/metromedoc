@@ -21,7 +21,6 @@ class HomePage extends Component {
   };
 
   static contextTypes = {
-    // router: PropTypes.object.isRequired,
     muiTheme: PropTypes.object.isRequired,
   };
 
@@ -48,7 +47,7 @@ class HomePage extends Component {
         <BlueBar textColor={alternateTextColor} bgColor={primary1Color}/>
         <CallToAction textColor={alternateTextColor} paperBgColor={primary2Color}/>
         <CustomServices hoverColor={accent1Color} iconColor={primary2Color} titleColor={primary2Color}/>
-        <div className='flex-container'>
+        <div className='flex-container' style={{marginBottom: 30}}>
           <div className='flex-home-half'>
             <LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>
           </div>

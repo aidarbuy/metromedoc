@@ -41,6 +41,7 @@ export default ({accentColor, imgSubtitleColor, language, primaryColor, textColo
 				title="Matt, Doreen and Karl"
 				subtitle="Members of our team"
 				subtitleStyle={{color: imgSubtitleColor}}
+				style={{paddingTop: 0, paddingBottom: 10}}
 			/>
 		}>
 			<img src={imgSrc} style={{marginBottom: 1}}/>

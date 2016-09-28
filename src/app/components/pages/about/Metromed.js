@@ -33,23 +33,22 @@ export default ({imgSubtitleColor, primaryColor, textColor}) => (
         title="Our X-Ray system"
         subtitle="We have laboratory and pharmacy"
         subtitleStyle={{color: imgSubtitleColor}}
+        style={{paddingTop: 0, paddingBottom: 10}}
       />
     }>
       <img src={imgSrc} style={{marginBottom: 1}} />
     </CardMedia>
 
-    <CardText>
+    <CardText style={{paddingBottom: 20}}>
       <List>
         {items.map((item, i) => (
           <div key={i}>
-            <ListItem disabled style={{color: textColor}}>{item[0]}</ListItem>
+            <ListItem disabled style={{color: textColor, lineHeight: 1.68}}>{item[0]}</ListItem>
 
             {items[i].length > 1 ?
               <div style={{padding: 0, maxWidth: 350, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20}}>
                 <ul style={{margin: 0, textAlign: 'left', lineHeight: 1.6, fontSize: 16}}>
-                  {item[1].map((subitem, i) => (
-                    <li key={i}>{subitem}</li>
-                  ))}
+                  {item[1].map((subitem, i) => (<li key={i}>{subitem}</li>))}
                 </ul>
               </div>
             : null}

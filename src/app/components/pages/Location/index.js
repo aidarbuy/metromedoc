@@ -40,7 +40,7 @@ export default class Location extends Component {
 							<CardHeader
 								title={<a href={"tel:" + phone} style={{color: accent1Color, fontSize: 18}}>{phone}</a>}
 								subtitle = {<a href={"mailto:" + email} style={{color: primary2Color, fontSize: 16}}>{email}</a>}
-								avatar={<PhonelinkRing style={{fill:primary3Color, marginTop: 12, marginLeft: 10}}/>}
+								avatar={<PhonelinkRing style={{fill:primary2Color, marginTop: 12, marginLeft: 10}}/>}
 							/>
 							<CardMedia overlay={<CardTitle title={text} style={{paddingTop: 5, paddingBottom: 10}}/>}>
 								<img src="images/doctors/lounge-820x465.jpg"/>
@@ -57,9 +57,9 @@ export default class Location extends Component {
 							<CardHeader
 								title={<a href={location} style={{color: accent1Color, fontSize: 18}}>{address}</a>}
 								subtitle={<a href={leesburg} style={{color: primary2Color, fontSize: 16}}>{city}</a>}
-								avatar = {<MapsPlace color={primary3Color} style={{marginTop: 12, marginLeft: 10, width: 30, height: 30}}/>}
+								avatar = {<MapsPlace color={primary2Color} style={{marginTop: 12, marginLeft: 10, width: 30, height: 30}}/>}
               />
-							<CardMedia><GMaps height={385}/></CardMedia>
+							<CardMedia><GMaps height={386}/></CardMedia>
 							<CardMedia overlay={<CardTitle title={text2} style={{paddingTop: 5, paddingBottom: 10}}/>}/>
 							<CardActions style={{textAlign:'center', paddingTop: 20, paddingBottom: 20}}>
 								<RaisedButton href={location} label="Open in Google Maps" primary={true}/>
