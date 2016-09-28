@@ -1,12 +1,11 @@
+import {Component, PropTypes} from 'react';
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import FlatButton from 'material-ui/FlatButton';
-import doctors from '../../data/doctors';
-// import Helmet from 'react-helmet';
+import doctors from '../../../data/doctors';
 import Title from 'react-title-component';
 import Link from 'react-router/lib/Link';
-import React from 'react';
 
-class Doctor extends React.Component {
+class Doctor extends Component {
 	constructor(props) {
 		super(props);
 		this.handleTouchTap = this.handleTouchTap.bind(this);
@@ -28,16 +27,15 @@ class Doctor extends React.Component {
 	}
 
 	render() {
-		const { primary2Color, textColor } = this.context.muiTheme.palette;
-		const { id } = this.props.params;
+		const {primary2Color, textColor} = this.context.muiTheme.palette;
+		const {id} = this.props.params;
 		const doctor = this.getDoctor(id);
 
 		return (
 			<article>
-				{/*<Helmet title={"Doctor " + doctor.firstname + " " + doctor.lastname}/>*/}
-				<Title render={(previousTitle) => `Dr. ${doctor.firstname} ${doctor.lastname}`} />
+				<Title render={(previousTitle) => `Dr. ${doctor.firstname} ${doctor.lastname}`}/>
 
-				<div style={{ textAlign: 'left' }}>
+				<div style={{textAlign: 'left'}}>
 					<FlatButton
 						containerElement = { <Link to="/doctors" /> }
 						icon 						 = { <ArrowBack/> }
@@ -47,13 +45,13 @@ class Doctor extends React.Component {
 					/>
 				</div>
 
-				<h3 style={{color:primary2Color, textTransform:'capitalize'}}>
+				<h3 style={{color: primary2Color, textTransform: 'capitalize'}}>
 					Dr. {doctor.firstname} {doctor.lastname}
 				</h3>
 
-				<img width="100%" src={"/images/doctors/" + doctor.img.big} />
+				<img width="100%" src={"/images/doctors/" + doctor.img.big}/>
 
-				<div style={{margin:50, color:textColor}}>
+				<div style={{margin: 50, color: textColor}}>
 					{doctor.description.map((section, i) => (
 						<p key={i} dangerouslySetInnerHTML={{__html: section}}/>
 					))}
@@ -64,9 +62,9 @@ class Doctor extends React.Component {
 }
 
 Doctor.contextTypes = {
-	store:  React.PropTypes.object,
-	router: React.PropTypes.object,
-	muiTheme: React.PropTypes.object,
+	store:  PropTypes.object,
+	router: PropTypes.object,
+	muiTheme: PropTypes.object,
 };
 
 export default Doctor;

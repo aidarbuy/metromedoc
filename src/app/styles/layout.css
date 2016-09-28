@@ -28,7 +28,7 @@ article .flex-container, section .flex-container,
 }
 
 article, section {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 .appbar-title-full,

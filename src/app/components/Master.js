@@ -209,7 +209,8 @@ class Master extends Component {
       window.location.pathname.match(/articles/g) == "articles" ? "Articles" :
       router.isActive('/location') ? 'Location' :
       router.isActive('/virtual') ? 'Virtual Tour' :
-      router.isActive('/gallery') ? 'Photo gallery' : 'Metromed-UC';
+      router.isActive('/gallery') ? 'Photo gallery' :
+      router.isActive('/testlab') ? 'Test Lab' : 'Metromed-UC';
 
     let docked = false;
     let showMenuIconButton = true;
@@ -237,7 +238,7 @@ class Master extends Component {
             <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
               <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
               <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
-              <MenuItem primaryText="Virtual Tour" href="/virtual"/>
+              <MenuItem primaryText="Virtual Tour" containerElement={<Link to='/virtual'/>}/>
               {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}
               {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
             </IconMenu>

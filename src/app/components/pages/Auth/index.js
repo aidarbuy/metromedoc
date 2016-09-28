@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import {Component} from 'react';
 import Title from 'react-title-component';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
-import { authorizeWithGithub } from '../../data/firebase';
+import {authorizeWithGithub} from '../../../data/firebase';
 
 const styles = {
   button: {
@@ -21,10 +21,6 @@ const styles = {
 };
 
 export default class Auth extends Component {
-  handleTouchTap() {
-    authorizeWithGithub();
-  }
-
   render() {
     return (
       <section className="text-center">
@@ -32,7 +28,7 @@ export default class Auth extends Component {
 
         <RaisedButton
           label="Github"
-          onTouchTap={this.handleTouchTap}
+          onTouchTap={authorizeWithGithub}
           secondary={true}
           style={styles.button}
           icon={<FontIcon className="muidocs-icon-custom-github" />}
@@ -40,4 +36,4 @@ export default class Auth extends Component {
       </section>
     );
   }
-}
+};

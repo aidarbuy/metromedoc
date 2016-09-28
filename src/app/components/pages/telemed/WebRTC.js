@@ -1,18 +1,10 @@
-/*
- *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree.
- */
-
+import {Component} from 'react';
+import io from 'socket.io-client';
 import Card from 'material-ui/Card';
 import CardActions from 'material-ui/Card/CardActions';
 import CardMedia from 'material-ui/Card/CardMedia';
-import io from 'socket.io-client';
 import RaisedButton from 'material-ui/RaisedButton';
-import React, { Component } from 'react';
-import { cyan700 } from 'material-ui/styles/colors';
+import {cyan700} from 'material-ui/styles/colors';
 
 // require('https://webrtc.github.io/adapter/adapter-latest.js');
 
@@ -52,7 +44,7 @@ const onCreateOfferSuccess = desc => {
 		},
 		onSetSessionDescriptionError
 	);
-}
+};
 
 const onSetLocalSuccess = pc =>
 	trace(getName(pc) + ' setLocalDescription complete');
@@ -82,7 +74,7 @@ const onCreateAnswerSuccess = desc => {
 		},
 		onSetSessionDescriptionError
 	);
-}
+};
 
 const onIceCandidate = (pc, event) => {
 	if (event.candidate) {
@@ -92,7 +84,7 @@ const onIceCandidate = (pc, event) => {
 		});
 		trace(getName(pc) + ' ICE candidate: \n' + event.candidate.candidate);
 	}
-}
+};
 
 const onAddIceCandidateSuccess = pc =>
 	trace(getName(pc) + ' addIceCandidate success');
@@ -105,7 +97,7 @@ const onIceStateChange = (pc, event) => {
 		trace(getName(pc) + ' ICE state: ' + pc.iceConnectionState);
 		console.log('ICE state change event: ', event);
 	}
-}
+};
 
 // const LOCAL_POSTER = require('../../images/telemed/local-video.jpg');
 const LOCAL_POSTER = 'https://firebasestorage.googleapis.com/v0/b/metromeduc.appspot.com/o/images%2Ftelemed%2Flocal-video.jpg?alt=media&token=1f2a7e2c-915f-46f0-b3d4-69fc1d84db9a';

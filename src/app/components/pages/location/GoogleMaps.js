@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import Paper from 'material-ui/Paper';
 import GoogleMapsLoader from 'google-maps';
 
@@ -8,7 +8,7 @@ export default class GoogleMaps extends Component {
   }
 
   componentDidMount() {
-    const options = {center: {lat:39.116852, lng:-77.539673}, zoom:17};
+    const options = {center: {lat: 39.116852, lng: -77.539673}, zoom: 17};
     GoogleMapsLoader.KEY = 'AIzaSyCevAQFOgvKGgw1Rz2xACa7zvsk7hs4W-Q';
     GoogleMapsLoader.load((google) => {
       var map = new google.maps.Map(this.refs.map, options)
@@ -23,8 +23,8 @@ export default class GoogleMaps extends Component {
 
   render() {
     return (
-      <Paper style={{width:'100%', height:this.props.height}}>
-        <div ref="map" style={{height: "100%"}} />
+      <Paper style={{width: '100%', height: this.props.height}}>
+        <div ref="map" style={{height: "100%"}}/>
       </Paper>
     );
   }

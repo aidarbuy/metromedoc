@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
+import {Card, CardMedia, CardText, CardTitle} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import List from 'material-ui/List';
 import ListItem from 'material-ui/List/ListItem';
@@ -22,51 +21,42 @@ const items = [
   ["Clean, Quick and Pleasant"],
 ];
 
+// const imgSrc = 'https://firebasestorage.googleapis.com/v0/b/metromeduc.appspot.com/o/images%2Finterior%2Fx-ray-710x399.jpg?alt=media&token=ad530af1-0605-48a3-ae5c-1c7845d85f33';
+const imgSrc = 'images/doctors/x-ray-710x399.jpg';
+
 export default ({imgSubtitleColor, primaryColor, textColor}) => (
   <Card>
-    <CardTitle title={
-      <h3 style={{color:primaryColor}}>
-        <span>About our clinic</span>
-      </h3>
-    }/>
+    <CardTitle title={<h3 style={{color: primaryColor}}>About our clinic</h3>}/>
 
-    <CardMedia overlayContentStyle={{bottom:-1}} overlay={
+    <CardMedia overlayContentStyle={{bottom: -1}} overlay={
       <CardTitle
         title="Our X-Ray system"
         subtitle="We have laboratory and pharmacy"
-        subtitleStyle={{color:imgSubtitleColor}}
+        subtitleStyle={{color: imgSubtitleColor}}
       />
     }>
-      {/*<img src={'https://firebasestorage.googleapis.com/v0/b/metromeduc.appspot.com/o/images%2Finterior%2Fx-ray-710x399.jpg?alt=media&token=ad530af1-0605-48a3-ae5c-1c7845d85f33'} />*/}
-      <img src="images/doctors/x-ray-710x399.jpg" style={{marginBottom:1}} />
+      <img src={imgSrc} style={{marginBottom: 1}} />
     </CardMedia>
 
     <CardText>
       <List>
-        {items.map((item, i) => {
-          if (i === 3) return (
-            <div key={i}>
-              <ListItem disabled style={{color:textColor}}>{item[0]}</ListItem>
+        {items.map((item, i) => (
+          <div key={i}>
+            <ListItem disabled style={{color: textColor}}>{item[0]}</ListItem>
 
-              <div style={{padding:0, maxWidth:350, marginLeft:'auto', marginRight:'auto', marginBottom:20}}>
-                <ul style={{margin:0, textAlign:'left', lineHeight:1.6, fontSize:16}}>
+            {items[i].length > 1 ?
+              <div style={{padding: 0, maxWidth: 350, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20}}>
+                <ul style={{margin: 0, textAlign: 'left', lineHeight: 1.6, fontSize: 16}}>
                   {item[1].map((subitem, i) => (
                     <li key={i}>{subitem}</li>
                   ))}
                 </ul>
               </div>
+            : null}
 
-              <Divider/>
-            </div>
-          );
-
-          return (
-            <div key={i}>
-              <ListItem disabled style={{color:textColor}}>{item}</ListItem>
-              {i < 7 ? <Divider/> : null}
-            </div>
-          );
-        })}
+            {i < items.length - 1 ? <Divider/> : null}
+          </div>
+        ))}
       </List>
     </CardText>
   </Card>

@@ -1,9 +1,9 @@
 import {observer} from 'mobx-react';
 import {Component} from 'react';
 import Title from 'react-title-component';
-import articlesStore from '../../data/articlesStore';
+import articlesStore from '../../../data/articlesStore';
 import CircularProgress from 'material-ui/CircularProgress';
-import ArticleCard from '../cards/ArticleCard';
+import ArticleCard from '../../cards/ArticleCard';
 
 @observer class Articles extends Component {
 	render() {

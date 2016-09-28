@@ -1,14 +1,13 @@
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
-import { database } from '../../data/firebase';
+import {database} from '../../../data/firebase';
 import FlatButton from 'material-ui/FlatButton';
-// import Helmet from 'react-helmet';
 import Title from 'react-title-component';
 import Link from 'react-router/lib/Link';
-import React from 'react';
+import {Component} from 'react';
 
-class Article extends React.Component {
+class Article extends Component {
 	constructor(props) {
 		super(props);
 		const { id } = this.props.params;
@@ -39,9 +38,7 @@ class Article extends React.Component {
 	}
 
 	render() {
-		const { alternateTextColor } = this.context.muiTheme.palette;
-
-		// const { title, date, href, text } = this.state;
+		const {alternateTextColor} = this.context.muiTheme.palette;
 
 		var articleImage = '';
 		if (this.state.href == '') {
@@ -53,21 +50,20 @@ class Article extends React.Component {
 
 		return (
 			<section>
-				{/*<Helmet title={this.state.title + " - MetromedUC"} />*/}
-				<Title render={(previousTitle) => `${this.state.title}`} />
+				<Title render={(previousTitle) => `${this.state.title}`}/>
 
-				<div style={{ textAlign:'left' }}>
+				<div style={{textAlign: 'left'}}>
 					<FlatButton
-						containerElement = { <Link to="/articles" /> }
-						icon 			 		= { <ArrowBack /> }
-						label 			 	= { "All Articles" }
-						labelPosition = { "after" }
-						secondary 		= { true }
+						containerElement = {<Link to="/articles"/>}
+						icon 			 		= {<ArrowBack />}
+						label 			 	= {"All Articles"}
+						labelPosition = {"after"}
+						secondary 		= {true}
 					/>
 				</div>
 
 				<article>
-					<Card style={{margin:0}}>
+					<Card style={{margin: 0}}>
 						<CardHeader
 							title 	 = "Matthew Beckwith"
 							subtitle = "Doctor of Medicine"
@@ -76,10 +72,10 @@ class Article extends React.Component {
 
 						<CardMedia overlay={
 							<CardTitle 
-								title 	   = { this.state.title } 
-								subtitle   = { this.state.date } 
-								titleStyle = {{ color: alternateTextColor }}
-								subtitleStyle = {{ color: alternateTextColor }}
+								title 		 = {this.state.title}
+								titleStyle = {{color: alternateTextColor}}
+								subtitle   		= {this.state.date}
+								subtitleStyle = {{color: alternateTextColor}}
 							/>
 						}>
 							{articleImage}

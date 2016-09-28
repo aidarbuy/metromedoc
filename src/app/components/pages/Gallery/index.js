@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import dataGallery from '../../data/gallery';
+import {Component, PropTypes} from 'react';
 import Title from 'react-title-component';
+import dataGallery from '../../../data/gallery';
 
 export default class Gallery extends Component {
 	static contextTypes = {
 		muiTheme: PropTypes.object
-	}
+	};
 
 	constructor(props) {
 		super(props);

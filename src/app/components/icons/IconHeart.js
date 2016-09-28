@@ -7,6 +7,6 @@ const Icon = (props) => (
   </SvgIcon>
 );
 
-module.exports = (props) => (
+export default (props) => (
   <Icon style={props.styles} color={props.styles.color} hoverColor={props.styles.hover} viewBox="0 0 49 49" />
 );

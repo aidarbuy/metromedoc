@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Title from 'react-title-component';
-// import Helmet from 'react-helmet';
-import Greetings from './about/Greetings';
-import Metromed from './about/Metromed';
+import Greetings from './Greetings';
+import Metromed from './Metromed';
 
 class About extends Component {
 	render() {
@@ -12,7 +11,6 @@ class About extends Component {
 
 		return (
 			<section>
-				{/*<Helmet title="About Us - Metromed UC"/>*/}
 				<Title render={(previousTitle) => `About Us - ${previousTitle}`} />
 
 				<div className="flex-container">

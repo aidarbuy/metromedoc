@@ -100,7 +100,7 @@ export default ({bgColor, textColor})=>(
 				<CardTitle title="New Hours of Operation starting October 1&nbsp;st 2016" titleColor={textColor} style={styles.CardTitle}/>
 				<CardText color={textColor} style={styles.CardText}>
 					{/*<p>Major Holidays Observed</p>*/}
-					<p>Monday through Friday 9 am to 7 pm<br/>Closed Saturdays and Sundays</p>
+					<p>Monday through Friday 9 am to 7&nbsp;pm<br/>Closed Saturdays and Sundays</p>
 					<Divider style={{background: textColor}} />
 					{/*<p>No Appointments Necessary</p>*/}
 					<p>Observe Major Holidays</p>

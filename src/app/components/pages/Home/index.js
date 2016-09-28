@@ -1,27 +1,27 @@
-import React, {Component, PropTypes} from 'react';
-import HomeFeature from './HomeFeature';
-import FullWidthSection from '../FullWidthSection';
-import RaisedButton from 'material-ui/RaisedButton';
+import {Component, PropTypes} from 'react';
+// import HomeFeature from '../HomeFeature';
+// import FullWidthSection from '../../FullWidthSection';
+// import RaisedButton from 'material-ui/RaisedButton';
 import withWidth, {LARGE} from 'material-ui/utils/withWidth';
-import spacing from 'material-ui/styles/spacing';
-import typography from 'material-ui/styles/typography';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
-import Advertising from './home/Advertising';
-import BlueBar from './home/BlueBar';
-import CallToAction from './home/CallToAction';
-import CustomServices from './home/CustomServices';
-import LatestArticles from './home/LatestArticles';
-import Testimonials from './home/Testimonials';
+// import spacing from 'material-ui/styles/spacing';
+// import typography from 'material-ui/styles/typography';
+// import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+// import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
+import Advertising from './Advertising';
+import BlueBar from './BlueBar';
+import CallToAction from './CallToAction';
+import CustomServices from './CustomServices';
+import LatestArticles from './LatestArticles';
+import Testimonials from './Testimonials';
 
 class HomePage extends Component {
 
   static propTypes = {
-    width: PropTypes.number.isRequired,
+    // width: PropTypes.number.isRequired,
   };
 
   static contextTypes = {
-    router: PropTypes.object.isRequired,
+    // router: PropTypes.object.isRequired,
     muiTheme: PropTypes.object.isRequired,
   };
 
