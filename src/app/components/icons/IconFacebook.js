@@ -21,7 +21,7 @@ const Icon = (props) => (
   </SvgIcon>
 );
 
-module.exports = (props) => (
+export default (props) => (
   <Icon 
     style={props.styles} 
     color={props.styles.color} 

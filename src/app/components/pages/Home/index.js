@@ -7,15 +7,15 @@ import withWidth, {LARGE} from 'material-ui/utils/withWidth';
 // import typography from 'material-ui/styles/typography';
 // import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 // import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
+import Title from 'react-title-component';
 import Advertising from './Advertising';
 import BlueBar from './BlueBar';
 import CallToAction from './CallToAction';
 import CustomServices from './CustomServices';
-import LatestArticles from './LatestArticles';
+// import LatestArticles from './LatestArticles';
 import Testimonials from './Testimonials';
 
 class HomePage extends Component {
-
   static propTypes = {
     // width: PropTypes.number.isRequired,
   };
@@ -25,9 +25,11 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
-    jQuery("#layerslider").layerSlider({
+    $("#layerslider").layerSlider({
       showCircleTimer: false,
       showBarTimer: false,
+      // layersContainer: 600,
+      // responsiveUnder: 400,
       skin: 'noskin'
     });
   }
@@ -43,13 +45,15 @@ class HomePage extends Component {
 
     return (
       <div style={style}>
+        <Title render={(previousTitle) => `About Us - ${previousTitle}`} />
+
         <Advertising/>
         <BlueBar textColor={alternateTextColor} bgColor={primary1Color}/>
         <CallToAction textColor={alternateTextColor} paperBgColor={primary2Color}/>
         <CustomServices hoverColor={accent1Color} iconColor={primary2Color} titleColor={primary2Color}/>
         <div className='flex-container' style={{marginBottom: 30}}>
           <div className='flex-home-half'>
-            <LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>
+            {/*<LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>*/}
           </div>
           <div className='flex-home-half'>
             <Testimonials secondaryTextColor={clockCycleColor}/>

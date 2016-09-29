@@ -72,6 +72,53 @@ lightBaseTheme.palette.alternateTextColor = grey200;
 // lightBaseTheme.palette.clockCircleColor =
 // lightBaseTheme.palette.shadowColor =
 
+class HomeTitle extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "",
+      opacity: 0,
+      intervalID: 0,
+      fontSize: 0,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(this.setTitle, 300);
+  }
+
+  setTitle = () => {
+    this.setState({
+      title: "Metromed-UC",
+      intervalID: setInterval(this.increaseOpacity, 1),
+    });
+  };
+
+  increaseOpacity = () => {
+    // console.debug(this.state.opacity);
+    if (this.state.opacity >= 1) clearInterval(this.state.intervalID);
+    this.setState({
+      opacity: this.state.opacity + 0.01,
+    });
+  };
+
+  increaseFontSize = () => {
+    console.debug(this.state.fontSize);
+    if (this.state.fontSize >= 25) clearInterval(this.state.intervalID);
+    this.setState({
+      fontSize: this.state.fontSize + 2,
+    });
+  };
+
+  render() {
+    return (
+      <div className="text-center" style={{opacity:this.state.opacity}}>
+        {this.state.title}
+      </div>
+    );
+  }
+}
+
 class Master extends Component {
   static propTypes = {
     children: PropTypes.node,
@@ -89,6 +136,7 @@ class Master extends Component {
 
   state = {
     navDrawerOpen: false,
+    title: "Metromed-UC",
   };
 
   getChildContext() {
@@ -117,6 +165,12 @@ class Master extends Component {
         // Needed to overlap the examples
         zIndex: this.state.muiTheme.zIndex.appBar + 1,
         top: 0,
+      },
+      appBarTitle: {
+        color: 'red',
+        textAlign: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
       },
       root: {
         // paddingTop: spacing.desktopKeylineIncrement,
@@ -177,7 +231,7 @@ class Master extends Component {
   };
 
   handleChangeList = (event, value) => {
-    if (value !== "/virtual") this.context.router.push(value);
+    this.context.router.push(value);
     this.setState({
       navDrawerOpen: false,
     });
@@ -202,7 +256,7 @@ class Master extends Component {
     const styles = this.getStyles();
 
     const title =
-      router.isActive('/') ? 'Metromed-UC' :
+      router.isActive('/') ? <HomeTitle/> :
       router.isActive('/about') ? 'About Us' :
       router.isActive('/services') ? 'Services' :
       window.location.pathname.match(/doctors/g) == "doctors" ? "Doctors" :

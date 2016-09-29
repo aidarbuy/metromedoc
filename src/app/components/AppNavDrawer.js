@@ -13,7 +13,7 @@ import Divider from 'material-ui/Divider';
 
 const SelectableList = makeSelectable(List);
 
-class AppNavDrawer extends Component {
+export default class AppNavDrawer extends Component {
   static propTypes = {
     docked: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
@@ -57,7 +57,7 @@ class AppNavDrawer extends Component {
           paddingBottom: 20,
         }}>
           <div onTouchTap={this.handleTouchTapHeader} style={{
-            fontSize: '114%'
+            fontSize:'114%'
           }}>METROMED</div>
           <Divider style={{marginRight: 25, marginTop: 0, opacity: 0.3}}/>
           <div onTouchTap={this.handleTouchTapHeader} style={{
@@ -65,11 +65,7 @@ class AppNavDrawer extends Component {
             letterSpacing: 6.2,
             marginTop: -2,
           }}>urgent care</div>
-          <div style={{
-            marginTop: 15,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}>
+          <div style={{marginTop: 15, marginLeft: 'auto', marginRight: 'auto'}}>
             <a href='tel:(703)-687-4158' style={{
               color: aHrefColor,
               letterSpacing: 0.4,
@@ -86,17 +82,15 @@ class AppNavDrawer extends Component {
           </div>
         </div>
         <SelectableList value={"/" + location.pathname.split('/')[1]} onChange={onChangeList}>
-          <ListItem primaryText="Home"         value="/"         innerDivStyle={{paddingLeft: 55}} leftIcon={<HomeIcon style={{fill: iconFillColor}}/>}/>
-          <ListItem primaryText="About Us"     value="/about"    innerDivStyle={{paddingLeft: 55}} leftIcon={<AboutIcon style={{fill: iconFillColor}}/>}/>
-          <ListItem primaryText="Services"     value="/services" innerDivStyle={{paddingLeft: 55}} leftIcon={<ServicesIcon style={{fill: iconFillColor}}/>}/>
-          <ListItem primaryText="Doctors"      value="/doctors"  innerDivStyle={{paddingLeft: 55}} leftIcon={<DoctorsIcon style={{fill: iconFillColor}}/>}/>
-          <ListItem primaryText="Articles"     value="/articles" innerDivStyle={{paddingLeft: 55}} leftIcon={<ArticlesIcon style={{fill: iconFillColor}}/>}/>
-          <ListItem primaryText="Location"     value="/location" innerDivStyle={{paddingLeft: 55}} leftIcon={<LocationIcon style={{fill: iconFillColor}}/>}/>
-          <ListItem primaryText="Virtual Tour" value="/virtual"  innerDivStyle={{paddingLeft: 55}} leftIcon={<VirtualIcon style={{fill: iconFillColor}}/>} href="/virtual"/>
+          <ListItem primaryText="Home"         value="/"         innerDivStyle={{paddingLeft:55}} leftIcon={<HomeIcon     style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="About Us"     value="/about"    innerDivStyle={{paddingLeft:55}} leftIcon={<AboutIcon    style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Services"     value="/services" innerDivStyle={{paddingLeft:55}} leftIcon={<ServicesIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Doctors"      value="/doctors"  innerDivStyle={{paddingLeft:55}} leftIcon={<DoctorsIcon  style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Articles"     value="/articles" innerDivStyle={{paddingLeft:55}} leftIcon={<ArticlesIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Location"     value="/location" innerDivStyle={{paddingLeft:55}} leftIcon={<LocationIcon style={{fill:iconFillColor}}/>}/>
+          <ListItem primaryText="Virtual Tour" value="/virtual"  innerDivStyle={{paddingLeft:55}} leftIcon={<VirtualIcon  style={{fill:iconFillColor}}/>}/>
         </SelectableList>
       </Drawer>
     );
   }
-}
-
-export default AppNavDrawer;
+};
