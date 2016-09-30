@@ -3,14 +3,12 @@ import {Table, TableRow, TableRowColumn, TableBody} from 'material-ui/Table';
 
 const pairArray = (arr) => {
 	var arrPaired = [];
-
 	for (var i = 0; i <= arr.length - 1; i += 2) {
 		var pairObj = [];
 		pairObj.push(arr[i]);
 		pairObj.push(arr[i + 1]);
 		arrPaired.push(pairObj);
 	}
-
 	return arrPaired;
 };
 

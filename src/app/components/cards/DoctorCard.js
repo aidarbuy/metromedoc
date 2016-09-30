@@ -20,6 +20,7 @@ export default class Doctor extends Component {
 		const route = "/doctors/" + doctor.id;
 		const colorRGB = hexToRgb(color);
 		const bgColor = colorRGB.r + ", " + colorRGB.g + ", " + colorRGB.b;
+
 		return (
 			<Card style={{boxSizing: 'border-box', minHeight: 535}}>
 				<CardMedia overlay={<CardTitle title={"Dr. " + fullName}/>} overlayContentStyle={{

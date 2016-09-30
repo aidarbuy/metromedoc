@@ -60,19 +60,18 @@ const getData = (iconColor, hoverColor) => {
 };
 
 export default ({iconColor, hoverColor, titleColor}) => (
-	<div className="flex-container" style={{marginTop: 30, marginBottom: 0}}>
-		{getData(iconColor, hoverColor).map((item, index) => (
-		  <div key={index} className="custom-services-item">
-        <Paper style={getStyles().Paper}>
-          <div className="text-center">{item.icon}</div>
-          <div style={{fontSize: 25, color: titleColor}}>{item.name}</div>
-          <p style={getStyles().text} dangerouslySetInnerHTML={{__html: item.desc}}/>
-          {index === 3 ?
-            <RaisedButton secondary label={item.button} href={item.href}/> :
+	<div className="container-fluid">
+    <div className="row">
+      {getData(iconColor, hoverColor).map((item, index) => (
+        <div key={index} className="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+          <Paper style={getStyles().Paper}>
+            <div className="text-center">{item.icon}</div>
+            <div style={{fontSize: 25, color: titleColor}}>{item.name}</div>
+            <p style={getStyles().text} dangerouslySetInnerHTML={{__html: item.desc}}/>
             <RaisedButton secondary label={item.button} containerElement={<Link to={item.href}/>}/>
-          }
-        </Paper>
-      </div>
-		))}
+          </Paper>
+        </div>
+      ))}
+    </div>
 	</div>
 );

@@ -14,6 +14,7 @@ import CallToAction from './CallToAction';
 import CustomServices from './CustomServices';
 // import LatestArticles from './LatestArticles';
 import Testimonials from './Testimonials';
+// require('../../../styles/bluebar.css');
 
 class HomePage extends Component {
   static propTypes = {
@@ -30,7 +31,10 @@ class HomePage extends Component {
       showBarTimer: false,
       // layersContainer: 600,
       // responsiveUnder: 400,
-      skin: 'noskin'
+      skin: 'noskin',
+      firstSlide: 1,
+      // animateFirstSlide: false,
+      sliderFadeInDuration: 250,
     });
   }
 
@@ -40,23 +44,27 @@ class HomePage extends Component {
     };
 
     const {
-      accent1Color, alternateTextColor, canvasColor, clockCycleColor, primary1Color, primary2Color
+      accent1Color, alternateTextColor, clockCycleColor, primary1Color, primary2Color
     } = this.context.muiTheme.palette;
 
     return (
       <div style={style}>
         <Title render={(previousTitle) => `About Us - ${previousTitle}`} />
 
-        <Advertising/>
-        <BlueBar textColor={alternateTextColor} bgColor={primary1Color}/>
-        <CallToAction textColor={alternateTextColor} paperBgColor={primary2Color}/>
+        <div className="embed-responsive embed-responsive-16by9">
+          <Advertising className="embed-responsive-item"/>
+        </div>
+        <BlueBar textColor={alternateTextColor} bgColor={primary2Color} paperBgColor={accent1Color}/>
+        <CallToAction textColor={accent1Color} paperBgColor={primary2Color}/>
         <CustomServices hoverColor={accent1Color} iconColor={primary2Color} titleColor={primary2Color}/>
-        <div className='flex-container' style={{marginBottom: 30}}>
-          <div className='flex-home-half'>
-            {/*<LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>*/}
-          </div>
-          <div className='flex-home-half'>
-            <Testimonials secondaryTextColor={clockCycleColor}/>
+        <div className="container-fluid" style={{marginBottom:30}}>
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              {/*<LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>*/}
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <Testimonials secondaryTextColor={clockCycleColor}/>
+            </div>
           </div>
         </div>
       </div>

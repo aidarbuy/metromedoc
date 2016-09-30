@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import {Component, PropTypes} from 'react';
 import {parse} from 'react-docgen';
 import {parse as parseDoctrine} from 'doctrine';
 import MarkdownElement from './MarkdownElement';

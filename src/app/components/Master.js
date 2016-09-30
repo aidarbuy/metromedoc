@@ -14,42 +14,43 @@ import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert';
 import Link from 'react-router/lib/Link';
-require('../styles/layout.css');
+// import AppBottomNav from './AppBottomNav';
+// require('../styles/layout.css');
 require('../styles/typography.css');
 
 import {
 
-  red500,     pink500,      purple500,      deepPurple500,
-  red700,     pink700,      purple700,      deepPurple700,
-  red900,     pink900,      purple900,      deepPurple900,
+  // red500,     pink500,      purple500,      deepPurple500,
+  // red700,     pink700,      purple700,      deepPurple700,
+  // red900,     pink900,      purple900,      deepPurple900,
 
   indigo500,  blue500,      lightBlue500,   cyan500,
   indigo700,  blue700,      lightBlue700,   cyan700,
   indigo900,  blue900,      lightBlue900,   cyan900,
 
-  teal500,    green500,     lightGreen500,  lime500,
-  teal700,    green700,     lightGreen700,  lime700,
-  teal900,    green900,     lightGreen900,  lime900,
+  // teal500,    green500,     lightGreen500,  lime500,
+  // teal700,    green700,     lightGreen700,  lime700,
+  // teal900,    green900,     lightGreen900,  lime900,
 
-  yellow500,  amber500,     orange500,      deepOrange500,
-  yellow700,  amber700,     orange700,      deepOrange700,
-  yellow900,  amber900,     orange900,      deepOrange900,
+  // yellow500,  amber500,     orange500,      deepOrange500,
+  // yellow700,  amber700,     orange700,      deepOrange700,
+  // yellow900,  amber900,     orange900,      deepOrange900,
 
                             grey200,
-  brown500,   blueGrey500,  grey500,
-  brown700,   blueGrey700,  grey700,
+  // brown500,   blueGrey500,  grey500,
+  // brown700,   blueGrey700,  grey700,
   brown900,   blueGrey900,  grey900,
 
-  black,       //   0,   0,   0, 1.00
-  fullBlack,   //   0,   0,   0, 1.00
-  darkBlack,   //   0,   0,   0, 0.87
-  lightBlack,  //   0,   0,   0, 0.54
-  minBlack,    //   0,   0,   0, 0.26
-  faintBlack,  //   0,   0,   0, 0.12
-  transparent, //   0,   0,   0, 0.00
+  // black,       //   0,   0,   0, 1.00
+  // fullBlack,   //   0,   0,   0, 1.00
+  // darkBlack,   //   0,   0,   0, 0.87
+  // lightBlack,  //   0,   0,   0, 0.54
+  // minBlack,    //   0,   0,   0, 0.26
+  // faintBlack,  //   0,   0,   0, 0.12
+  // transparent, //   0,   0,   0, 0.00
 
-  white,       // 255, 255, 255, 1.00
-  fullWhite,   // 255, 255, 255, 1.00
+  // white,       // 255, 255, 255, 1.00
+  // fullWhite,   // 255, 255, 255, 1.00
   darkWhite,   // 255, 255, 255, 0.87
   lightWhite,  // 255, 255, 255, 0.54
 
@@ -71,53 +72,6 @@ lightBaseTheme.palette.alternateTextColor = grey200;
 // lightBaseTheme.palette.pickerHeaderColor =
 // lightBaseTheme.palette.clockCircleColor =
 // lightBaseTheme.palette.shadowColor =
-
-class HomeTitle extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "",
-      opacity: 0,
-      intervalID: 0,
-      fontSize: 0,
-    };
-  }
-
-  componentDidMount() {
-    setTimeout(this.setTitle, 300);
-  }
-
-  setTitle = () => {
-    this.setState({
-      title: "Metromed-UC",
-      intervalID: setInterval(this.increaseOpacity, 1),
-    });
-  };
-
-  increaseOpacity = () => {
-    // console.debug(this.state.opacity);
-    if (this.state.opacity >= 1) clearInterval(this.state.intervalID);
-    this.setState({
-      opacity: this.state.opacity + 0.01,
-    });
-  };
-
-  increaseFontSize = () => {
-    console.debug(this.state.fontSize);
-    if (this.state.fontSize >= 25) clearInterval(this.state.intervalID);
-    this.setState({
-      fontSize: this.state.fontSize + 2,
-    });
-  };
-
-  render() {
-    return (
-      <div className="text-center" style={{opacity:this.state.opacity}}>
-        {this.state.title}
-      </div>
-    );
-  }
-}
 
 class Master extends Component {
   static propTypes = {
@@ -166,12 +120,12 @@ class Master extends Component {
         zIndex: this.state.muiTheme.zIndex.appBar + 1,
         top: 0,
       },
-      appBarTitle: {
-        color: 'red',
-        textAlign: 'center',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-      },
+      // appBarTitle: {
+      //   color: 'red',
+      //   textAlign: 'center',
+      //   marginLeft: 'auto',
+      //   marginRight: 'auto',
+      // },
       root: {
         // paddingTop: spacing.desktopKeylineIncrement,
         // paddingTop: 0,
@@ -205,6 +159,9 @@ class Master extends Component {
         color: lightWhite,
         lineHeight: '25px',
         fontSize: 12,
+      },
+      browserstackLogo: {
+        margin: '0 3px',
       },
       iconButton: {
         color: darkWhite,
@@ -256,7 +213,7 @@ class Master extends Component {
     const styles = this.getStyles();
 
     const title =
-      router.isActive('/') ? <HomeTitle/> :
+      router.isActive('/') ? "Metromed-UC" :
       router.isActive('/about') ? 'About Us' :
       router.isActive('/services') ? 'Services' :
       window.location.pathname.match(/doctors/g) == "doctors" ? "Doctors" :
@@ -264,65 +221,98 @@ class Master extends Component {
       router.isActive('/location') ? 'Location' :
       router.isActive('/virtual') ? 'Virtual Tour' :
       router.isActive('/gallery') ? 'Photo gallery' :
-      router.isActive('/testlab') ? 'Test Lab' : 'Metromed-UC';
+      router.isActive('/testlab') ? '==<Test Lab>==' : 'Metromed-UC';
 
     let docked = false;
     let showMenuIconButton = true;
 
-    {/*if (this.props.width === MEDIUM && title !== '') {*/}
-      {/*docked = false;*/}
-      {/*navDrawerOpen = false;*/}
-      {/*showMenuIconButton = true;*/}
+    if (this.props.width === LARGE) {
+      docked = true;
+      navDrawerOpen = true;
+      showMenuIconButton = false;
 
-    //   styles.navDrawer = {
-    //     zIndex: styles.appBar.zIndex - 1,
-    //   };
-    //   // styles.root.paddingLeft = 256;
-    //   // styles.footer.paddingLeft = 256;
-    // }
+      styles.navDrawer = {
+        zIndex: styles.appBar.zIndex - 1,
+      };
+      styles.root.paddingLeft = 200;
+      styles.appBar.paddingLeft = 200;
+      styles.footer.paddingLeft = 200;
+    }
 
     return (
       <div>
-        <Title render="Metromed-UC" />
-        <AppBar
-          onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
-          title={title}
-          zDepth={0}
-          iconElementRight={
-            <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
-              <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
-              <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
-              <MenuItem primaryText="Virtual Tour" containerElement={<Link to='/virtual'/>}/>
-              {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}
-              {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
-            </IconMenu>
+        <div>
+          <Title render="Metromed-UC"/>
+          <AppBar
+            onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
+            title={<div className="text-center" style={{background:this.state.muiTheme.palette.primary1Color}}>{title}</div>}
+            zDepth={0}
+            iconElementRight={
+              <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
+                <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
+                <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
+                <MenuItem primaryText="Virtual Tour" containerElement={<Link to='/virtual'/>}/>
+                <MenuItem primaryText="Test Lab" containerElement={<Link to='/testlab'/>}/>
+                {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}
+                {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
+              </IconMenu>
+            }
+            style={styles.appBar}
+            showMenuIconButton={showMenuIconButton}
+          />
+          <AppTabs className="hidden-lg hidden-md" bgColor={this.state.muiTheme.palette.primary1Color} handleActive={this.handleTabActive} />
+          {title !== '' ?
+            <div style={prepareStyles(styles.root)}>
+              <div style={prepareStyles(styles.content)}>
+                {React.cloneElement(children, {
+                  onChangeMuiTheme: this.handleChangeMuiTheme,
+                })}
+              </div>
+            </div> :
+            children
           }
-          style={styles.appBar}
-          showMenuIconButton={showMenuIconButton}
-        />
-        <AppTabs bgColor={this.state.muiTheme.palette.primary1Color} handleActive={this.handleTabActive} />
-        {title !== '' ?
-          <div style={prepareStyles(styles.root)}>
-            <div style={prepareStyles(styles.content)}>
-              {React.cloneElement(children, {
-                onChangeMuiTheme: this.handleChangeMuiTheme,
-              })}
-            </div>
-          </div> :
-          children
-        }
-        <AppNavDrawer
-          style={styles.navDrawer}
-          location={location}
-          docked={docked}
-          onRequestChangeNavDrawer={this.handleChangeRequestNavDrawer}
-          onChangeList={this.handleChangeList}
-          open={navDrawerOpen}
-        />
-        <Footer
-          color={this.state.muiTheme.palette.alternateTextColor}
-          bgColor={this.state.muiTheme.palette.primary3Color}
-        />
+          <AppNavDrawer
+            style={styles.navDrawer}
+            location={location}
+            docked={docked}
+            onRequestChangeNavDrawer={this.handleChangeRequestNavDrawer}
+            onChangeList={this.handleChangeList}
+            open={navDrawerOpen}
+          />
+          {/*<AppBottomNav/>*/}
+          {/*<FullWidthSection style={styles.footer}>
+            <p style={prepareStyles(styles.p)}>
+              {'Hand crafted with love by the engineers at '}
+              <a style={styles.a} href="http://www.call-em-all.com/Careers">
+                Call-Em-All
+              </a>
+              {' and our awesome '}
+              <a
+                style={prepareStyles(styles.a)}
+                href="https://github.com/callemall/material-ui/graphs/contributors"
+              >
+                contributors
+              </a>.
+            </p>
+            <IconButton
+              iconStyle={styles.iconButton}
+              iconClassName="muidocs-icon-custom-github"
+              href="https://github.com/callemall/material-ui"
+            />
+            <p style={prepareStyles(styles.browserstack)}>
+              {'Thank you to '}
+              <a href="https://www.browserstack.com" style={prepareStyles(styles.browserstackLogo)} target="_blank">
+                <img src="http://www.browserstack.com/images/layout/logo.png" height="25" width="auto" />
+              </a>
+              {' for providing real browser testing infrastructure.'}
+            </p>
+          </FullWidthSection>*/}
+          <Footer
+            style={styles.footer}
+            color={this.state.muiTheme.palette.alternateTextColor}
+            bgColor={this.state.muiTheme.palette.primary3Color}
+          />
+        </div>
       </div>
     );
   }

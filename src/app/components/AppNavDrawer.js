@@ -62,10 +62,10 @@ export default class AppNavDrawer extends Component {
           <Divider style={{marginRight: 25, marginTop: 0, opacity: 0.3}}/>
           <div onTouchTap={this.handleTouchTapHeader} style={{
             fontSize: '70%',
-            letterSpacing: 6.2,
-            marginTop: -2,
+            letterSpacing: 6.4,
+            marginTop: 0,
           }}>urgent care</div>
-          <div style={{marginTop: 15, marginLeft: 'auto', marginRight: 'auto'}}>
+          <div style={{marginTop: 19, marginLeft: 'auto', marginRight: 'auto'}}>
             <a href='tel:(703)-687-4158' style={{
               color: aHrefColor,
               letterSpacing: 0.4,

@@ -14,7 +14,7 @@ export default class Virtual extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.updateIframeHeight();
-    }, 300);
+    }, 100);
     window.addEventListener('resize', () => this.updateIframeHeight());
   }
 

@@ -2,10 +2,9 @@ import ArrowBack from 'material-ui/svg-icons/image/navigate-before';
 import ArrowForward from 'material-ui/svg-icons/image/navigate-next';
 import Link from 'react-router/lib/Link';
 import RaisedButton from 'material-ui/FlatButton';
-import React from 'react';
-import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
-export default ({canvas, border, prev, prevBtn, label, next, nextBtn, borderTop, borderBottom})=>(
+export default ({canvas, border, prev, prevBtn, label, next, nextBtn, borderTop, borderBottom}) => (
 	<Toolbar noGutter={true} style={{
 		background: canvas, 
 		borderTop: '1px solid ' + border, 

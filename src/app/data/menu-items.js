@@ -1,4 +1,3 @@
-import React from 'react';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import AboutIcon from 'material-ui/svg-icons/action/info';
 import ServicesIcon from 'material-ui/svg-icons/maps/local-hospital';

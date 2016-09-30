@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router';
+import {Component, PropTypes} from 'react';
+import Link from 'react-router/lib/Link';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import spacing from 'material-ui/styles/spacing';
 import transitions from 'material-ui/styles/transitions';
