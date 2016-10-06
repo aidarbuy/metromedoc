@@ -11,10 +11,6 @@ export default class Location extends Component {
 		muiTheme: PropTypes.object,
 	};
 
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const {primary2Color, accent1Color} = this.context.muiTheme.palette;
 		const address = "952 Edwards Ferry Rd NE";
@@ -32,43 +28,39 @@ export default class Location extends Component {
 			<section>
 				<Title render={(previousTitle) => `Location - ${previousTitle}`}/>
 
-				<h4 style={{color: primary2Color}}>{title}</h4>
-
-				<div className="container-fluid" style={{marginTop: -30}}>
+				<div className="container-fluid">
 					<div className="row">
-
-						<div className="col-xs-12 col-lg-6">
+						<div className="col-xs-12 col-lg-6 margin-top">
 							<Card>
 								<CardHeader
-									title={<a href={"tel:" + phone} style={{color: accent1Color, fontSize: 18}}>{phone}</a>}
-									subtitle = {<a href={"mailto:" + email} style={{color: primary2Color, fontSize: 16}}>{email}</a>}
-									avatar={<PhonelinkRing style={{fill:primary2Color, marginTop: 12, marginLeft: 10}}/>}
+									title={<a href={"tel:" + phone} style={{color:accent1Color, fontSize:18}}>{phone}</a>}
+									subtitle = {<a href={"mailto:" + email} style={{color:primary2Color, fontSize:16}}>{email}</a>}
+									avatar={<PhonelinkRing style={{fill:primary2Color, marginTop:12, marginLeft:10}}/>}
 								/>
-								<CardMedia overlay={<CardTitle title={text} style={{paddingTop: 5, paddingBottom: 10}}/>}>
-									<img src="images/doctors/lounge-820x465.jpg"/>
+								<CardMedia overlay={<CardTitle title={text} style={{paddingTop:5, paddingBottom:10}}/>}>
+									<img src="images/clinic/lounge-820x465.jpg"/>
 								</CardMedia>
-								<CardActions style={{textAlign: 'center', paddingTop: 20, paddingBottom: 20}}>
+								<CardActions style={{textAlign:'center', paddingTop:20, paddingBottom:20}}>
 									<RaisedButton href={"tel:" + phone} label="Call Us" secondary={true}/>
 									<RaisedButton href={"mailto:" + email} label="Email Us" primary={true}/>
 								</CardActions>
 							</Card>
 						</div>
 
-						<div className="col-xs-12 col-lg-6">
+						<div className="col-xs-12 col-lg-6 margin-top">
 							<Card>
 								<CardHeader
-									title={<a href={location} style={{color: accent1Color, fontSize: 18}}>{address}</a>}
-									subtitle={<a href={leesburg} style={{color: primary2Color, fontSize: 16}}>{city}</a>}
-									avatar = {<MapsPlace color={primary2Color} style={{marginTop: 12, marginLeft: 10, width: 30, height: 30}}/>}
+									title={<a href={location} style={{color:accent1Color, fontSize:18}}>{address}</a>}
+									subtitle={<a href={leesburg} style={{color:primary2Color, fontSize:16}}>{city}</a>}
+									avatar = {<MapsPlace color={primary2Color} style={{marginTop:12, marginLeft:10, width:30, height:30}}/>}
 								/>
 								<CardMedia><GMaps height={386}/></CardMedia>
-								<CardMedia overlay={<CardTitle title={text2} style={{paddingTop: 5, paddingBottom: 10}}/>}/>
-								<CardActions style={{textAlign:'center', paddingTop: 20, paddingBottom: 20}}>
+								<CardMedia overlay={<CardTitle title={text2} style={{paddingTop:5, paddingBottom:10}}/>}/>
+								<CardActions style={{textAlign:'center', paddingTop:20, paddingBottom:20}}>
 									<RaisedButton href={location} label="Open in Google Maps" primary={true}/>
 								</CardActions>
 							</Card>
 						</div>
-
 					</div>
 				</div>
 			</section>

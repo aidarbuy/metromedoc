@@ -10,47 +10,48 @@ import Footer from './Footer';
 import FullWidthSection from './FullWidthSection';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert';
 import Link from 'react-router/lib/Link';
 // import AppBottomNav from './AppBottomNav';
-// require('../styles/layout.css');
+require('../styles/layout.css');
 require('../styles/typography.css');
 
 import {
 
-  // red500,     pink500,      purple500,      deepPurple500,
-  // red700,     pink700,      purple700,      deepPurple700,
-  // red900,     pink900,      purple900,      deepPurple900,
+  red500,     pink500,      purple500,      deepPurple500,
+  red700,     pink700,      purple700,      deepPurple700,
+  red900,     pink900,      purple900,      deepPurple900,
 
   indigo500,  blue500,      lightBlue500,   cyan500,
   indigo700,  blue700,      lightBlue700,   cyan700,
   indigo900,  blue900,      lightBlue900,   cyan900,
 
-  // teal500,    green500,     lightGreen500,  lime500,
-  // teal700,    green700,     lightGreen700,  lime700,
-  // teal900,    green900,     lightGreen900,  lime900,
+  teal500,    green500,     lightGreen500,  lime500,
+  teal700,    green700,     lightGreen700,  lime700,
+  teal900,    green900,     lightGreen900,  lime900,
 
-  // yellow500,  amber500,     orange500,      deepOrange500,
-  // yellow700,  amber700,     orange700,      deepOrange700,
-  // yellow900,  amber900,     orange900,      deepOrange900,
+  yellow500,  amber500,     orange500,      deepOrange500,
+  yellow700,  amber700,     orange700,      deepOrange700,
+  yellow900,  amber900,     orange900,      deepOrange900,
 
                             grey200,
-  // brown500,   blueGrey500,  grey500,
-  // brown700,   blueGrey700,  grey700,
+  brown500,   blueGrey500,  grey500,
+  brown700,   blueGrey700,  grey700,
   brown900,   blueGrey900,  grey900,
 
-  // black,       //   0,   0,   0, 1.00
-  // fullBlack,   //   0,   0,   0, 1.00
-  // darkBlack,   //   0,   0,   0, 0.87
-  // lightBlack,  //   0,   0,   0, 0.54
-  // minBlack,    //   0,   0,   0, 0.26
-  // faintBlack,  //   0,   0,   0, 0.12
-  // transparent, //   0,   0,   0, 0.00
+  black,       //   0,   0,   0, 1.00
+  fullBlack,   //   0,   0,   0, 1.00
+  darkBlack,   //   0,   0,   0, 0.87
+  lightBlack,  //   0,   0,   0, 0.54
+  minBlack,    //   0,   0,   0, 0.26
+  faintBlack,  //   0,   0,   0, 0.12
+  transparent, //   0,   0,   0, 0.00
 
-  // white,       // 255, 255, 255, 1.00
-  // fullWhite,   // 255, 255, 255, 1.00
+  white,       // 255, 255, 255, 1.00
+  fullWhite,   // 255, 255, 255, 1.00
   darkWhite,   // 255, 255, 255, 0.87
   lightWhite,  // 255, 255, 255, 0.54
 
@@ -58,20 +59,23 @@ import {
 
 lightBaseTheme.palette.primary1Color = blue500;
 lightBaseTheme.palette.primary2Color = blue700;
-lightBaseTheme.palette.primary3Color = grey900;
-lightBaseTheme.palette.alternateTextColor = grey200;
-// lightBaseTheme.palette.accent1Color = red500;
+// lightBaseTheme.palette.primary3Color = grey900;
+
+// lightBaseTheme.palette.accent1Color = pink500;
 // lightBaseTheme.palette.accent2Color = purple700;
 // lightBaseTheme.palette.accent3Color = purple900;
+
 // lightBaseTheme.palette.textColor = orange500;
 // lightBaseTheme.palette.secondaryTextColor =
 // lightBaseTheme.palette.alternateTextColor =
-// lightBaseTheme.palette.canvasColor =
-// lightBaseTheme.palette.borderColor =
+
 // lightBaseTheme.palette.disabledColor =
 // lightBaseTheme.palette.pickerHeaderColor =
 // lightBaseTheme.palette.clockCircleColor =
+
+// lightBaseTheme.palette.borderColor =
 // lightBaseTheme.palette.shadowColor =
+// lightBaseTheme.palette.canvasColor =
 
 class Master extends Component {
   static propTypes = {
@@ -80,36 +84,22 @@ class Master extends Component {
     width: PropTypes.number.isRequired,
   };
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-  };
-
-  static childContextTypes = {
-    muiTheme: PropTypes.object,
-  };
-
-  state = {
-    navDrawerOpen: false,
-    title: "Metromed-UC",
-  };
-
-  getChildContext() {
-    return {
-      muiTheme: this.state.muiTheme,
-    };
-  }
+  static contextTypes = {router: PropTypes.object.isRequired};
+  static childContextTypes = {muiTheme: PropTypes.object};
+  getChildContext() {return {muiTheme: this.state.muiTheme}}
+  state = {navDrawerOpen: false, themeMode: 'Light mode'};
 
   componentWillMount() {
-    this.setState({
-      muiTheme: getMuiTheme(lightBaseTheme),
-    });
+    let themeMode = localStorage ? localStorage.getItem('themeMode') : 'Light mode';
+    let muiTheme = themeMode === 'Dark mode' ? getMuiTheme(darkBaseTheme) : getMuiTheme(lightBaseTheme);
+    muiTheme.drawer.width = 200;
+    this.setState({themeMode});
+    this.handleChangeMuiTheme(muiTheme);
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
     const newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-    this.setState({
-      muiTheme: newMuiTheme,
-    });
+    this.setState({muiTheme: newMuiTheme});
   }
 
   getStyles() {
@@ -175,42 +165,37 @@ class Master extends Component {
     return styles;
   }
 
-  handleTouchTapLeftIconButton = () => {
-    this.setState({
-      navDrawerOpen: !this.state.navDrawerOpen,
-    });
-  };
-
-  handleChangeRequestNavDrawer = (open) => {
-    this.setState({
-      navDrawerOpen: open,
-    });
-  };
+  handleTouchTapLeftIconButton = () => this.setState({navDrawerOpen: !this.state.navDrawerOpen});
+  handleChangeRequestNavDrawer = open => this.setState({navDrawerOpen: open});
+  handleTabActive = tab => this.context.router.push(tab.props.value);
 
   handleChangeList = (event, value) => {
     this.context.router.push(value);
-    this.setState({
-      navDrawerOpen: false,
-    });
+    this.setState({navDrawerOpen: false});
   };
 
-  handleChangeMuiTheme = (muiTheme) => {
-    this.setState({
-      muiTheme: muiTheme,
-    });
+  handleChangeMuiTheme = muiTheme => {
+    this.setState({muiTheme});
+    document.body.style.backgroundColor = muiTheme.palette.canvasColor;
   };
 
-  handleTabActive = (tab) => {
-    this.context.router.push(tab.props.value);
+  toggleMuiTheme = (e) => {
+    const value = e.target.innerHTML;
+    let newMuiTheme = value === 'Dark mode' ? getMuiTheme(darkBaseTheme): getMuiTheme();
+    newMuiTheme.name = value;
+    this.setState({themeMode: value});
+    if (localStorage) localStorage.setItem('themeMode', value);
+    this.handleChangeMuiTheme(newMuiTheme);
   };
 
   render() {
     const {location, children} = this.props;
     let {navDrawerOpen} = this.state;
     const {prepareStyles} = this.state.muiTheme;
-
     const router = this.context.router;
     const styles = this.getStyles();
+    let docked = false;
+    let showMenuIconButton = true;
 
     const title =
       router.isActive('/') ? "Metromed-UC" :
@@ -221,98 +206,74 @@ class Master extends Component {
       router.isActive('/location') ? 'Location' :
       router.isActive('/virtual') ? 'Virtual Tour' :
       router.isActive('/gallery') ? 'Photo gallery' :
-      router.isActive('/testlab') ? '==<Test Lab>==' : 'Metromed-UC';
+      router.isActive('/testlab') ? 'Test Lab' : 'Metromed-UC';
 
-    let docked = false;
-    let showMenuIconButton = true;
-
-    if (this.props.width === LARGE) {
-      docked = true;
-      navDrawerOpen = true;
-      showMenuIconButton = false;
-
-      styles.navDrawer = {
-        zIndex: styles.appBar.zIndex - 1,
-      };
-      styles.root.paddingLeft = 200;
-      styles.appBar.paddingLeft = 200;
-      styles.footer.paddingLeft = 200;
-    }
+    // if (this.props.width === LARGE) {
+    //   docked = true;
+    //   navDrawerOpen = true;
+    //   showMenuIconButton = false;
+    //
+    //   styles.navDrawer = {
+    //     zIndex: styles.appBar.zIndex - 1,
+    //   };
+    //   styles.root.marginLeft = 200;
+    //   // styles.root.paddingTop = this.state.muiTheme.appBar.height;
+    //   styles.appBar.marginLeft = 200;
+    //   styles.footer.marginLeft = 200;
+    // }
 
     return (
       <div>
-        <div>
-          <Title render="Metromed-UC"/>
-          <AppBar
-            onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
-            title={<div className="text-center" style={{background:this.state.muiTheme.palette.primary1Color}}>{title}</div>}
-            zDepth={0}
-            iconElementRight={
-              <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
-                <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
-                <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
-                <MenuItem primaryText="Virtual Tour" containerElement={<Link to='/virtual'/>}/>
-                <MenuItem primaryText="Test Lab" containerElement={<Link to='/testlab'/>}/>
-                {/*<MenuItem primaryText={isThemeDark ? "Light interface" : "Dark interface"} onTouchTap={() => setTheme(!isThemeDark)}/>*/}
-                {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
-              </IconMenu>
-            }
-            style={styles.appBar}
-            showMenuIconButton={showMenuIconButton}
-          />
-          <AppTabs className="hidden-lg hidden-md" bgColor={this.state.muiTheme.palette.primary1Color} handleActive={this.handleTabActive} />
-          {title !== '' ?
-            <div style={prepareStyles(styles.root)}>
-              <div style={prepareStyles(styles.content)}>
-                {React.cloneElement(children, {
-                  onChangeMuiTheme: this.handleChangeMuiTheme,
-                })}
-              </div>
-            </div> :
-            children
+        <Title render="Metromed-UC"/>
+
+        <AppBar
+          onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}
+          title={title}
+          zDepth={0}
+          iconElementRight={
+            <IconMenu iconButtonElement={<IconButton><MoreVert/></IconButton>} targetOrigin={{horizontal:'right', vertical:'top'}} anchorOrigin={{horizontal:'right', vertical:'top'}}>
+              <MenuItem primaryText="Reload this page" onTouchTap={()=> {window.location.reload()}}/>
+              <MenuItem primaryText="Photo gallery" containerElement={<Link to='/gallery'/>}/>
+              <MenuItem primaryText="Virtual tour" containerElement={<Link to='/virtual'/>}/>
+              <MenuItem primaryText={this.state.themeMode === "Light mode" ? "Dark mode" : "Light mode"} onTouchTap={this.toggleMuiTheme}/>
+              {/*<MenuItem primaryText={isAppbarFixed ? "Unstick app bar" : "Stick app bar"} onTouchTap={toggleAppbarFixed}/>*/}
+              {/*<MenuItem primaryText="Test lab" containerElement={<Link to='/testlab'/>}/>*/}
+            </IconMenu>
           }
-          <AppNavDrawer
-            style={styles.navDrawer}
-            location={location}
-            docked={docked}
-            onRequestChangeNavDrawer={this.handleChangeRequestNavDrawer}
-            onChangeList={this.handleChangeList}
-            open={navDrawerOpen}
-          />
-          {/*<AppBottomNav/>*/}
-          {/*<FullWidthSection style={styles.footer}>
-            <p style={prepareStyles(styles.p)}>
-              {'Hand crafted with love by the engineers at '}
-              <a style={styles.a} href="http://www.call-em-all.com/Careers">
-                Call-Em-All
-              </a>
-              {' and our awesome '}
-              <a
-                style={prepareStyles(styles.a)}
-                href="https://github.com/callemall/material-ui/graphs/contributors"
-              >
-                contributors
-              </a>.
-            </p>
-            <IconButton
-              iconStyle={styles.iconButton}
-              iconClassName="muidocs-icon-custom-github"
-              href="https://github.com/callemall/material-ui"
-            />
-            <p style={prepareStyles(styles.browserstack)}>
-              {'Thank you to '}
-              <a href="https://www.browserstack.com" style={prepareStyles(styles.browserstackLogo)} target="_blank">
-                <img src="http://www.browserstack.com/images/layout/logo.png" height="25" width="auto" />
-              </a>
-              {' for providing real browser testing infrastructure.'}
-            </p>
-          </FullWidthSection>*/}
-          <Footer
-            style={styles.footer}
-            color={this.state.muiTheme.palette.alternateTextColor}
-            bgColor={this.state.muiTheme.palette.primary3Color}
-          />
+          style={styles.appBar}
+          showMenuIconButton={showMenuIconButton}
+        />
+
+        <AppNavDrawer
+          location={location}
+          docked={docked}
+          onRequestChangeNavDrawer={this.handleChangeRequestNavDrawer}
+          onChangeList={this.handleChangeList}
+          open={navDrawerOpen}
+        />
+
+        <AppTabs
+          bgColor={this.state.muiTheme.palette.primary1Color}
+          handleActive={this.handleTabActive}
+        />
+
+        <div style={prepareStyles(styles.root)}>
+          <div style={prepareStyles(styles.content)}>
+            {window.location.pathname != "/testlab" ? null :
+            <nav className="breadcrumb">
+              <Link to="/" className="breadcrumb-item">Home</Link>
+              <span className="breadcrumb-item active">{title}</span>
+            </nav>}
+            {React.cloneElement(children, {
+              onChangeMuiTheme: this.handleChangeMuiTheme,
+            })}
+          </div>
         </div>
+
+        <Footer
+          color={darkWhite}
+          bgColor={styles.footer.backgroundColor}
+        />
       </div>
     );
   }

@@ -15,7 +15,7 @@ const styles = {
 };
 
 export default ({secondaryTextColor}) => (
-	<Paper style={{marginTop: 20}}>
+	<Paper className="margin-top">
 		<Toolbar>
 			<ToolbarGroup style={{marginLeft: 'auto',marginRight: 'auto'}}>
 				<ToolbarTitle text="Testimonials"/>

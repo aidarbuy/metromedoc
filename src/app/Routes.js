@@ -63,6 +63,11 @@ export default [{
         cb(null, require('./components/pages/Auth').default)
       })
     }},
+    {path: '/muitheme', getComponent(nextState, cb) {
+      require.ensure([], (require) => {
+        cb(null, require('./components/pages/MuiTheme').default)
+      })
+    }},
     {path: '/testlab', getComponent(nextState, cb) {
       require.ensure([], (require) => {
         cb(null, require('./components/pages/TestLab').default)

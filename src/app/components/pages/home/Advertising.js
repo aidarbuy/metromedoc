@@ -1,6 +1,8 @@
 const styles = {
   wrapper: {
     width: '100%',
+    // border: '1px solid red',
+    // boxSizing: 'border-box'
   },
 	slider: {
 		width: 1280,
@@ -168,7 +170,7 @@ export default () => (
         <h2 className="ls-l" style={styles.slideA.every}    data-ls="delayin:1700; offsetxin:0; offsetyin:10; durationin:2000; offsetxout:0; offsetxout:0; durationout:1000; showuntil:4000;">EVERY</h2>
         <h2 className="ls-l" style={styles.slideA.patient}  data-ls="delayin:2100; offsetxin:0; offsetyin:10; durationin:2000; offsetxout:0; offsetxout:0; durationout:1000; showuntil:4000;">PATIENT</h2>
         <p className="ls-l" style={styles.slideA.spectrum} 	data-ls="delayin:9000; offsetxin:0; offsetyin:10; durationin:2000; showuntil:4000; offsetxout:0; offsetyout:-10; durationout:2000; transition2d:all;">A wide spectrum of quality medical services<br/>and treatment for all age groups</p>
-        <p className="ls-l" style={styles.slideA.hours} 	  data-ls="delayin:16500; offsetxin:0; offsetyin:10; durationin:2000; showuntil:3000; offsetxout:0; offsetyout:0; durationout:2000;">Monday &ndash; Friday: 9 am &ndash; 7 pm</p>
+        <p className="ls-l" style={styles.slideA.hours} 	  data-ls="delayin:16500; offsetxin:0; offsetyin:10; durationin:2000; showuntil:3000; offsetxout:0; offsetyout:0; durationout:2000;">Monday &ndash; Friday: 9:30 am &ndash; 7 pm</p>
       </div>
 
       <div className="ls-slide" data-ls={"slidedelay:9000; transition2d: " + transitions}>

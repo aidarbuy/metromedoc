@@ -1,4 +1,4 @@
-import { convertColorToString, decomposeColor } from 'material-ui/utils/colorManipulator';
+import {convertColorToString, decomposeColor} from 'material-ui/utils/colorManipulator';
 
 function componentToHex(c) {
 	var hex = c.toString(16);

@@ -22,7 +22,7 @@ export default class Doctor extends Component {
 		const bgColor = colorRGB.r + ", " + colorRGB.g + ", " + colorRGB.b;
 
 		return (
-			<Card style={{boxSizing: 'border-box', minHeight: 535}}>
+			<Card style={{boxSizing: 'border-box', minHeight: 540}}>
 				<CardMedia overlay={<CardTitle title={"Dr. " + fullName}/>} overlayContentStyle={{
 					background: 'rgba(' + bgColor + ', 0.7)',
 					bottom: -1,

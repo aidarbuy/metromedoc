@@ -34,7 +34,7 @@ const config = {
     outputPath: buildPath,
     historyApiFallback: true,
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   // Output file config
   output: {
     path: buildPath, // Path of output file

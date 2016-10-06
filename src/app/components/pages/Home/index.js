@@ -12,7 +12,7 @@ import Advertising from './Advertising';
 import BlueBar from './BlueBar';
 import CallToAction from './CallToAction';
 import CustomServices from './CustomServices';
-// import LatestArticles from './LatestArticles';
+import LatestArticles from './LatestArticles';
 import Testimonials from './Testimonials';
 // require('../../../styles/bluebar.css');
 
@@ -34,7 +34,7 @@ class HomePage extends Component {
       skin: 'noskin',
       firstSlide: 1,
       // animateFirstSlide: false,
-      sliderFadeInDuration: 250,
+      // sliderFadeInDuration: 100,
     });
   }
 
@@ -44,12 +44,12 @@ class HomePage extends Component {
     };
 
     const {
-      accent1Color, alternateTextColor, clockCycleColor, primary1Color, primary2Color
+      accent1Color, alternateTextColor, canvasColor, clockCycleColor, primary2Color
     } = this.context.muiTheme.palette;
 
     return (
       <div style={style}>
-        <Title render={(previousTitle) => `About Us - ${previousTitle}`} />
+        <Title render={(previousTitle) => `Metromed Urgent Care`} />
 
         <div className="embed-responsive embed-responsive-16by9">
           <Advertising className="embed-responsive-item"/>
@@ -60,7 +60,7 @@ class HomePage extends Component {
         <div className="container-fluid" style={{marginBottom:30}}>
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              {/*<LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>*/}
+              <LatestArticles accentColor={accent1Color} canvasColor={canvasColor}/>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <Testimonials secondaryTextColor={clockCycleColor}/>

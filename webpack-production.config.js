@@ -53,6 +53,7 @@ const config = {
     new webpack.NoErrorsPlugin(),
     // Transfer Files
     new CopyWebpackPlugin([
+      {from: 'src/www/bootstrap', to: 'bootstrap'},
       {from: 'src/www/css', to: 'css'},
       {from: 'src/www/images', to: 'images'},
       {from: 'src/www/layerslider', to: 'layerslider'},

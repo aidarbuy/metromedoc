@@ -23,7 +23,7 @@ export default class Services extends Component {
 				<div className="container-fluid">
 					<div className="row">
 						{services.map((service, i) => (
-							<div key={i} className="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+							<div key={i} className="col-xs-12 col-sm-6 col-md-6 col-lg-3 margin-top">
 								<Card style={{textAlign: 'center'}}>
 									<CardTitle style={{fontSize: 34, color: primary2Color}}>
 										<span>{service.title}</span>

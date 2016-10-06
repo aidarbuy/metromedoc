@@ -1,5 +1,6 @@
 import {observable} from 'mobx';
 import {database} from './firebase';
+// import _ from 'lodash';
 
 class LatestArticles {
   @observable articles = [];
@@ -8,10 +9,11 @@ class LatestArticles {
   constructor() {
     const articlesRef = database.ref('/articles').orderByKey().limitToLast(4);
     articlesRef.once('value').then(snapshot => {
-      const snapshotValue = snapshot.val();
+      const snapshotVal = snapshot.val();
       var articles = [];
-      Object.keys(snapshotValue).map(keyName => articles.push(snapshotValue[keyName]));
-      this.articles = articles;
+      Object.keys(snapshotVal).map(keyName => articles.push(snapshotVal[keyName]));
+      // _.values(snapshotVal).map(keyName => articles.push(snapshotVal[keyName]));
+      this.articles = articles.reverse();
     })
   }
 }

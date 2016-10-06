@@ -6,12 +6,9 @@ import DoctorCard from '../../cards/DoctorCard';
 export default class Doctors extends Component {
 	static contextTypes = {
 		muiTheme: PropTypes.object,
-		store: PropTypes.object,
 	};
 
 	render() {
-		const {primary1Color} = this.context.muiTheme.palette;
-
 		return (
 			<section>
 				<Title render={(previousTitle) => `Doctors - ${previousTitle}`}/>
@@ -19,9 +16,9 @@ export default class Doctors extends Component {
 				<div className="container-fluid">
 					<div className="row">
 						{dataDoctors.map((doctor, i) => (
-							<div key={doctor.id} className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+							<div key={doctor.id} className="col-xs-12 col-sm-12 col-md-6 col-lg-4 margin-top">
 								<DoctorCard
-									color={primary1Color}
+									color={this.context.muiTheme.palette.primary1Color}
 									dispatchAction={this.dispatchAction}
 									doctor={doctor}
 								/>

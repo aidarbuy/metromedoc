@@ -1,4 +1,3 @@
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import dataSocial from '../data/social';
 import IconButton from 'material-ui/IconButton';
 import IconFacebook from './icons/IconFacebook';
@@ -15,9 +14,19 @@ const Icon = ({iconName, styles}) => {
 	}
 };
 
-export default ({color, bgColor}) => (
-	<FullWidthSection style={{marginTop:0, background:bgColor}} className="text-center">
-		{/*<ToolbarGroup firstChild={true}>
+export default ({color, bgColor, marginLeft}) => (
+	<FullWidthSection className="margin-top" style={{background:bgColor}}>
+
+		<div className="col-xs-12 col-sm-6">
+			<address style={{color:color}}>
+				<strong>Metromed-UC</strong><br/>
+				952 Edwards Ferry Rd NE<br/>
+				Leesburg, VA 20176<br/>
+				Phone: <a href="tel:(703) 687-4158">(703) 687-4158</a>
+			</address>
+		</div>
+
+		<div className="col-xs-12 col-sm-6">
 			{dataSocial.slice(0, 3).map((icon, index) => (
 				<a key={icon.name} href={icon.href}>
 					<IconButton touch tooltip={icon.desc} tooltipPosition="top-right" style={{marginTop:4}} tooltipStyles={{textTransform:'none'}}>
@@ -25,35 +34,17 @@ export default ({color, bgColor}) => (
 					</IconButton>
 				</a>
 			))}
-		</ToolbarGroup>
+			<address style={{color:color}}>
+				<strong>Metromed Urgent Care</strong><br/>
+				<a href="mailto:info@metromeduc.com">info@metromeduc.com</a>
+			</address>
+		</div>
 
-		<ToolbarGroup lastChild={true}>
-			<ToolbarTitle style={{fontSize:16, color:color}} text="2016 Amygdala LLC"/>
-		</ToolbarGroup>*/}
-
-		<address style={{color:color}}>
-			<strong>Metromed-UC</strong><br/>
-			952 Edwards Ferry Rd NE<br/>
-			Leesburg, VA 20176<br/>
-			Phone: <a href="tel:(703) 687-4158">(703) 687-4158</a>
-		</address>
-
-		{dataSocial.slice(0, 3).map((icon, index) => (
-			<a key={icon.name} href={icon.href}>
-				<IconButton touch tooltip={icon.desc} tooltipPosition="top-right" style={{marginTop:4}} tooltipStyles={{textTransform:'none'}}>
-					<Icon iconName={icon.icon} styles={{color:'red', hover:'blue'}}/>
-				</IconButton>
-			</a>
-		))}
-
-		<address style={{color:color}}>
-			<strong>Metromed Urgent Care</strong><br/>
-			<a href="mailto:info@metromeduc.com">info@metromeduc.com</a>
-		</address>
-
-		<address style={{color:color, marginTop:20, paddingTop:20}} className="text-center">
-			<strong>&copy; 2016 Amygdala LLC</strong><br/>
-		</address>
+    <div className="pull-xs-right margin-top">
+      <address style={{color:color}}>
+        <strong>&copy; 2016 Amygdala LLC</strong><br/>
+      </address>
+    </div>
 
 	</FullWidthSection>
 );
